@@ -6,6 +6,34 @@ export const CONTACT = {
 };
 
 /**
+ * Bunny Stream config — videos hosted on Bunny, embedded via iframe.
+ * Embed URL: https://iframe.mediadelivery.net/embed/{libraryId}/{videoId}?params
+ */
+export const BUNNY_LIBRARY_ID = "657986";
+
+export const BUNNY_VIDEOS = {
+  post1: "c75f7cfe-e14c-478a-847d-b68108cf29d9",
+  post2: "d2ea1394-0164-4ff9-b6a4-e326a908fa21",
+  post3: "750bba21-7a5d-4f04-8e4f-dc5682ef4345",
+  post4: "21fe8247-274b-4d8f-a057-b4e14b5c6847",
+} as const;
+
+export function bunnyEmbedUrl(
+  videoId: string,
+  opts: { autoplay?: boolean; loop?: boolean; muted?: boolean } = {}
+) {
+  const { autoplay = true, loop = true, muted = true } = opts;
+  const params = new URLSearchParams({
+    autoplay: String(autoplay),
+    loop: String(loop),
+    muted: String(muted),
+    preload: "true",
+    responsive: "true",
+  });
+  return `https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${videoId}?${params.toString()}`;
+}
+
+/**
  * Per-page CTA prefills (URL-encoded — exact strings from spec).
  * Used by <CtaStack /> to construct WhatsApp/Email links.
  */
@@ -79,7 +107,7 @@ export const NICHES: Record<Niche["slug"], Niche> = {
     slug: "airbnb-hosts",
     brand: "For Airbnb Hosts",
     shortLabel: "Hosts",
-    heroVideo: "/videos/social-media-post-1.mp4",
+    heroVideo: BUNNY_VIDEOS.post1,
     headline: "Get 30% More Airbnb Bookings With Cinematic Reels From Your Listing Photos",
     subhead: "Delivered in 24 hours. KES 6,000 / $79 per property. KES 2,000 deposit.",
     primaryCta: "WhatsApp Us — 24hr Delivery",
@@ -115,9 +143,9 @@ export const NICHES: Record<Niche["slug"], Niche> = {
     },
     stickyBar: { title: "Hosts Bundle", price: "KES 6,000 / $79" },
     portfolioVideos: [
-      { src: "/videos/social-media-post-1.mp4", label: "Coastal villa · Diani" },
-      { src: "/videos/social-media-post-2.mp4", label: "City loft · Nairobi" },
-      { src: "/videos/social-media-post-3.mp4", label: "Lakeside cabin · Naivasha" },
+      { src: BUNNY_VIDEOS.post1, label: "Coastal villa · Diani" },
+      { src: BUNNY_VIDEOS.post2, label: "City loft · Nairobi" },
+      { src: BUNNY_VIDEOS.post3, label: "Lakeside cabin · Naivasha" },
     ],
     faqs: [
       { q: "Will Airbnb let me upload this video?", a: "Yes — designed specifically for Airbnb's new video feature, plus IG and TikTok formats included." },
@@ -132,7 +160,7 @@ export const NICHES: Record<Niche["slug"], Niche> = {
     slug: "realtors",
     brand: "For Real Estate Agents",
     shortLabel: "Realtors",
-    heroVideo: "/videos/social-media-post-2.mp4",
+    heroVideo: BUNNY_VIDEOS.post2,
     headline: "Sell Listings 2x Faster With AI Cinematic Tours From Your Photos",
     subhead: "3 cinematic videos per listing. 24-hour delivery. KES 12,000 / $179.",
     primaryCta: "WhatsApp Us — 24hr Delivery",
@@ -167,9 +195,9 @@ export const NICHES: Record<Niche["slug"], Niche> = {
     },
     stickyBar: { title: "Realtor Listing", price: "KES 12,000 / $179" },
     portfolioVideos: [
-      { src: "/videos/social-media-post-2.mp4", label: "Modern villa · Nairobi" },
-      { src: "/videos/social-media-post-3.mp4", label: "Townhouse · Westlands" },
-      { src: "/videos/social-media-post-1.mp4", label: "US single-family listing" },
+      { src: BUNNY_VIDEOS.post2, label: "Modern villa · Nairobi" },
+      { src: BUNNY_VIDEOS.post3, label: "Townhouse · Westlands" },
+      { src: BUNNY_VIDEOS.post1, label: "US single-family listing" },
     ],
     faqs: [
       { q: "What about MLS compliance?", a: "All videos are listing-marketing compliant. We avoid copyrighted music and follow standard MLS guidelines." },
@@ -184,7 +212,7 @@ export const NICHES: Record<Niche["slug"], Niche> = {
     slug: "developers",
     brand: "For Property Developers",
     shortLabel: "Developers",
-    heroVideo: "/videos/social-media-post-3.mp4",
+    heroVideo: BUNNY_VIDEOS.post3,
     headline: "Pre-Launch Cinematic Reels for Off-Plan Properties",
     subhead: "5 cinematic videos to drive pre-sales. Delivered in 7 days. KES 45,000 / $750.",
     primaryCta: "Book a Discovery Call",

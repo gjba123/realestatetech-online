@@ -1,48 +1,33 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { WhatsappFloat } from "@/components/whatsapp-float";
 import { ServiceCard } from "@/components/service-card";
 import { HeroRendy } from "@/components/hero-rendy";
 import { Testimonials } from "@/components/testimonials";
+import { BUNNY_VIDEOS, bunnyEmbedUrl } from "@/data/niches";
 
 const SAMPLE_VIDEOS = [
-  { src: "/videos/social-media-post-1.mp4", label: "Airbnb · Diani" },
-  { src: "/videos/social-media-post-2.mp4", label: "Realtor · Nairobi" },
-  { src: "/videos/social-media-post-3.mp4", label: "Developer · Off-plan" },
+  { videoId: BUNNY_VIDEOS.post1, label: "Airbnb · Diani" },
+  { videoId: BUNNY_VIDEOS.post2, label: "Realtor · Nairobi" },
+  { videoId: BUNNY_VIDEOS.post3, label: "Developer · Off-plan" },
 ];
 
-function HomeSampleTile({ src, label }: { src: string; label: string }) {
-  const v = useRef<HTMLVideoElement>(null);
-  const w = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = v.current;
-    const wrap = w.current;
-    if (!el || !wrap) return;
-    const obs = new IntersectionObserver(
-      ([e]) => (e.isIntersecting ? el.play().catch(() => {}) : el.pause()),
-      { threshold: 0.4 }
-    );
-    obs.observe(wrap);
-    return () => obs.disconnect();
-  }, []);
-
+function HomeSampleTile({ videoId, label }: { videoId: string; label: string }) {
   return (
-    <div ref={w} className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2">
       <div
-        className="rounded-2xl overflow-hidden bg-black border border-[var(--border)]"
+        className="relative rounded-2xl overflow-hidden bg-black border border-[var(--border)]"
         style={{ aspectRatio: "9/16", width: "100%", maxWidth: "180px" }}
       >
-        <video
-          ref={v}
-          src={src}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover"
+        <iframe
+          src={bunnyEmbedUrl(videoId)}
+          loading="lazy"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full border-0"
+          title={label}
         />
       </div>
       <span className="text-xs text-[var(--muted)]">{label}</span>
@@ -72,7 +57,7 @@ export default function Home() {
         ctaSecondary={{ label: "See Examples", href: "#samples" }}
         trustText="Trusted by 100+ agents · Diani, Miami, Nairobi, Austin"
         variant="home"
-        heroVideo="/videos/social-media-post-1.mp4"
+        heroVideo={BUNNY_VIDEOS.post1}
         showBeforeAfter={true}
       />
 

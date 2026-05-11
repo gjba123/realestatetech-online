@@ -1,30 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { bunnyEmbedUrl } from "@/data/niches";
 
+/** `src` here is now a Bunny Stream video GUID (kept name for data compat) */
 type Item = { src: string; label: string };
 
 function VideoTile({ src, label }: Item) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const wrapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    const w = wrapRef.current;
-    if (!v || !w) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) v.play().catch(() => {});
-        else v.pause();
-      },
-      { threshold: 0.4 }
-    );
-    obs.observe(w);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <div ref={wrapRef} className="flex flex-col items-center gap-3">
+    <div className="flex flex-col items-center gap-3">
       <div
         className="relative rounded-[1.6rem] p-[2px] w-full max-w-[220px]"
         style={{
@@ -33,15 +16,17 @@ function VideoTile({ src, label }: Item) {
           boxShadow: "0 18px 40px rgba(10,22,40,0.12)",
         }}
       >
-        <div className="rounded-[1.45rem] overflow-hidden bg-black" style={{ aspectRatio: "9/16" }}>
-          <video
-            ref={videoRef}
-            src={src}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
+        <div
+          className="relative rounded-[1.45rem] overflow-hidden bg-black"
+          style={{ aspectRatio: "9/16" }}
+        >
+          <iframe
+            src={bunnyEmbedUrl(src)}
+            loading="lazy"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full border-0"
+            title={label}
           />
         </div>
       </div>
@@ -58,7 +43,10 @@ export function PortfolioVideos({
   placeholder?: string;
 }) {
   return (
-    <section id="portfolio" className="section-white py-20 md:py-28 border-y border-[var(--border)]">
+    <section
+      id="portfolio"
+      className="section-white py-20 md:py-28 border-y border-[var(--border)]"
+    >
       <div className="container-x">
         <div className="text-center mb-12">
           <span className="eyebrow text-[var(--blue)]">Live Examples</span>

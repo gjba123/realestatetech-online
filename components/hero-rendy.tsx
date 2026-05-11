@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { FloatNotifications } from "@/components/float-notifications";
+import { bunnyEmbedUrl } from "@/data/niches";
 
 type HeroProps = {
   eyebrow: string;
@@ -12,6 +12,7 @@ type HeroProps = {
   ctaSecondary?: { label: string; href: string };
   trustText: string;
   variant?: "home" | "hosts" | "realtors" | "developers";
+  /** Bunny Stream video GUID */
   heroVideo?: string;
   beforeImage?: string;
   showBeforeAfter?: boolean;
@@ -29,11 +30,7 @@ export function HeroRendy({
   beforeImage = "/images/thumbnail-0.png",
   showBeforeAfter = true,
 }: HeroProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) videoRef.current.play().catch(() => {});
-  }, []);
+  const embedSrc = heroVideo ? bunnyEmbedUrl(heroVideo) : null;
 
   return (
     <section className="relative bg-paper overflow-hidden pt-28 md:pt-36 pb-16 md:pb-20">
@@ -133,16 +130,14 @@ export function HeroRendy({
                       className="relative rounded-[1.4rem] overflow-hidden bg-black w-full max-w-[200px]"
                       style={{ aspectRatio: "9/16" }}
                     >
-                      {heroVideo && (
-                        <video
-                          ref={videoRef}
-                          src={heroVideo}
-                          muted
-                          loop
-                          playsInline
-                          autoPlay
-                          preload="metadata"
-                          className="w-full h-full object-cover"
+                      {embedSrc && (
+                        <iframe
+                          src={embedSrc}
+                          loading="lazy"
+                          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full border-0"
+                          title="Cinematic property reel"
                         />
                       )}
                     </div>
@@ -161,19 +156,17 @@ export function HeroRendy({
               <div className="flex justify-center">
                 <div className="card-base p-4 max-w-[260px] mx-auto">
                   <div
-                    className="rounded-[1.4rem] overflow-hidden bg-black"
+                    className="relative rounded-[1.4rem] overflow-hidden bg-black"
                     style={{ aspectRatio: "9/16" }}
                   >
-                    {heroVideo && (
-                      <video
-                        ref={videoRef}
-                        src={heroVideo}
-                        muted
-                        loop
-                        playsInline
-                        autoPlay
-                        preload="metadata"
-                        className="w-full h-full object-cover"
+                    {embedSrc && (
+                      <iframe
+                        src={embedSrc}
+                        loading="lazy"
+                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full border-0"
+                        title="Cinematic property reel"
                       />
                     )}
                   </div>
