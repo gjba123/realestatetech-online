@@ -7,11 +7,11 @@ export function FaqSection({ items }: { items: FAQType[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="section-warm py-20 md:py-28">
+    <section className="section-warm py-14 sm:py-20 md:py-28">
       <div className="container-x max-w-3xl">
         <div className="text-center mb-10">
           <span className="eyebrow text-[var(--blue)]">FAQ</span>
-          <h2 className="h-display text-[2rem] sm:text-[2.5rem] md:text-[3rem] mt-3 text-[var(--ink)]">
+          <h2 className="h-display text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] mt-3 text-[var(--ink)] leading-[1.1]">
             Questions? <span className="text-[var(--blue)]">Answered.</span>
           </h2>
         </div>

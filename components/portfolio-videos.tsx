@@ -45,12 +45,12 @@ export function PortfolioVideos({
   return (
     <section
       id="portfolio"
-      className="section-white py-20 md:py-28 border-y border-[var(--border)]"
+      className="section-white py-14 sm:py-20 md:py-28 border-y border-[var(--border)]"
     >
       <div className="container-x">
         <div className="text-center mb-12">
           <span className="eyebrow text-[var(--blue)]">Live Examples</span>
-          <h2 className="h-display text-[2rem] sm:text-[2.5rem] md:text-[3rem] mt-3 text-[var(--ink)]">
+          <h2 className="h-display text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] mt-3 text-[var(--ink)] leading-[1.1]">
             Real listings. <span className="text-[var(--blue)]">Real reels.</span>
           </h2>
         </div>

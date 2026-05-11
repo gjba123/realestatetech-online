@@ -398,8 +398,19 @@ html.geo-detected .pricing-display {
 }
 
 @media (max-width: 768px) {
-  .cta-stack { flex-direction: column; }
+  .cta-stack { flex-direction: column; gap: 10px; margin: 16px 0; }
   .cta-stack a { width: 100%; }
+  /* Tame mobile button padding so spec rules don't blow up the page */
+  .locale-kenya .cta-whatsapp,
+  .locale-international .cta-email {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+  .locale-kenya .cta-email,
+  .locale-international .cta-whatsapp {
+    font-size: 0.9rem;
+    padding: 11px 18px;
+  }
 }
 
 .locale-toggle {

@@ -62,11 +62,11 @@ export default function Home() {
       />
 
       {/* 3-CARD CHOOSER */}
-      <section id="pick-your-need" className="section-white py-20 md:py-28 border-t border-[var(--border)]">
+      <section id="pick-your-need" className="section-white py-14 sm:py-20 md:py-28 border-t border-[var(--border)]">
         <div className="container-x">
           <div className="text-center mb-12 max-w-2xl mx-auto">
             <span className="eyebrow text-[var(--blue)]">Choose Your Path</span>
-            <h2 className="h-display text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] mt-3 text-[var(--ink)]">
+            <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] mt-3 text-[var(--ink)] leading-[1.1]">
               Built for three kinds of growth.
             </h2>
             <p className="text-[var(--muted)] mt-4 text-base md:text-lg">
@@ -116,11 +116,11 @@ export default function Home() {
       </section>
 
       {/* Founder + samples */}
-      <section id="samples" className="section-warm py-20 md:py-28">
+      <section id="samples" className="section-warm py-14 sm:py-20 md:py-28">
         <div className="container-x">
           <div className="text-center mb-12">
             <span className="eyebrow text-[var(--blue)]">Live Examples</span>
-            <h2 className="h-display text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] mt-3 text-[var(--ink)]">
+            <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] mt-3 text-[var(--ink)] leading-[1.1]">
               Real listings. <span className="text-[var(--blue)]">Real reels.</span>
             </h2>
             <p className="text-[var(--muted)] mt-4 max-w-md mx-auto">

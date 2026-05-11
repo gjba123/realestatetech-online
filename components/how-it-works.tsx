@@ -17,11 +17,11 @@ const ICONS = [
 
 export function HowItWorks({ steps }: { steps: Step[] }) {
   return (
-    <section id="how-it-works" className="section-warm py-20 md:py-28">
+    <section id="how-it-works" className="section-warm py-14 sm:py-20 md:py-28">
       <div className="container-x">
         <div className="max-w-2xl mb-12">
           <span className="eyebrow text-[var(--blue)]">How It Works</span>
-          <h2 className="h-display text-[2rem] sm:text-[2.5rem] md:text-[3rem] mt-3 text-[var(--ink)]">
+          <h2 className="h-display text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] mt-3 text-[var(--ink)] leading-[1.1]">
             Three steps. Twenty-four hours. Done.
           </h2>
         </div>

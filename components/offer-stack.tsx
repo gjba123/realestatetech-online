@@ -1,10 +1,10 @@
 export function OfferStack({ items }: { items: string[] }) {
   return (
-    <section className="section-white py-20 md:py-28 border-y border-[var(--border)]">
+    <section className="section-white py-14 sm:py-20 md:py-28 border-y border-[var(--border)]">
       <div className="container-x max-w-3xl">
         <div className="mb-10">
           <span className="eyebrow text-[var(--blue)]">What You Get</span>
-          <h2 className="h-display text-[2rem] sm:text-[2.5rem] md:text-[3rem] mt-3 text-[var(--ink)] leading-tight">
+          <h2 className="h-display text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] mt-3 text-[var(--ink)] leading-tight">
             Everything included.
             <br />
             <span className="text-[var(--blue)]">No upsells.</span>

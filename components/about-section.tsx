@@ -2,7 +2,7 @@ import { CONTACT } from "@/data/niches";
 
 export function AboutSection() {
   return (
-    <section className="section-light py-20 md:py-28">
+    <section className="section-light py-14 sm:py-20 md:py-28">
       <div className="container-x max-w-4xl">
         <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">
           {/* Founder avatar (initials) */}
@@ -17,7 +17,7 @@ export function AboutSection() {
 
           <div>
             <span className="eyebrow text-[var(--blue)]">About</span>
-            <h2 className="h-display text-[1.75rem] sm:text-[2.25rem] md:text-[2.5rem] mt-2 text-[var(--ink)] leading-tight">
+            <h2 className="h-display text-[1.375rem] sm:text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] mt-2 text-[var(--ink)] leading-tight">
               Built by a video specialist, not a tech bro.
             </h2>
             <p className="text-[var(--muted)] text-base md:text-lg leading-relaxed mt-5">

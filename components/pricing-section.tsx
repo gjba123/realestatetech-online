@@ -5,11 +5,11 @@ import { PricingDisplay } from "@/components/pricing-display";
 
 export function PricingSection({ niche }: { niche: Niche }) {
   return (
-    <section id="pricing" className="section-warm py-20 md:py-28">
+    <section id="pricing" className="section-warm py-14 sm:py-20 md:py-28">
       <div className="container-x max-w-5xl">
         <div className="text-center mb-12">
           <span className="eyebrow text-[var(--blue)]">Transparent Pricing</span>
-          <h2 className="h-display text-[2rem] sm:text-[2.5rem] md:text-[3rem] mt-3 text-[var(--ink)]">
+          <h2 className="h-display text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] mt-3 text-[var(--ink)] leading-[1.1]">
             One price. <span className="text-[var(--blue)]">No surprises.</span>
           </h2>
           <p className="text-[var(--muted)] mt-3 text-base max-w-md mx-auto">

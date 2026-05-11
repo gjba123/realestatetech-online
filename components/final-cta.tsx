@@ -2,7 +2,7 @@ import { CONTACT, waUrl, type Niche } from "@/data/niches";
 
 export function FinalCta({ niche }: { niche: Niche }) {
   return (
-    <section className="section-light py-20 md:py-28">
+    <section className="section-light py-14 sm:py-20 md:py-28">
       <div className="container-x max-w-4xl">
         <div
           className="relative overflow-hidden rounded-[2rem] p-10 md:p-16 text-center"
@@ -24,7 +24,7 @@ export function FinalCta({ niche }: { niche: Niche }) {
 
           <div className="relative z-10">
             <span className="eyebrow text-[var(--blue)]">Ready?</span>
-            <h2 className="h-display text-[2.25rem] sm:text-[3rem] md:text-[3.75rem] mt-3 mb-5 text-[var(--ink)]">
+            <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] mt-3 mb-5 text-[var(--ink)] leading-[1.05]">
               Let&apos;s make your{" "}
               <span className="text-[var(--blue)]">listings unforgettable.</span>
             </h2>

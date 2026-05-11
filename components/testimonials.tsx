@@ -27,11 +27,11 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section className="section-white py-20 md:py-28 border-t border-[var(--border)]">
+    <section className="section-white py-14 sm:py-20 md:py-28 border-t border-[var(--border)]">
       <div className="container-x">
         <div className="text-center mb-14 max-w-2xl mx-auto">
           <span className="eyebrow text-[var(--blue)]">What People Say</span>
-          <h2 className="h-display text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] mt-3 text-[var(--ink)]">
+          <h2 className="h-display text-[1.625rem] sm:text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] mt-3 text-[var(--ink)] leading-[1.1]">
             Different niches.{" "}
             <span className="text-[var(--blue)]">Same outcome.</span>
           </h2>

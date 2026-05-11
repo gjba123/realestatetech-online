@@ -33,27 +33,27 @@ export function HeroRendy({
   const embedSrc = heroVideo ? bunnyEmbedUrl(heroVideo) : null;
 
   return (
-    <section className="relative bg-paper overflow-hidden pt-28 md:pt-36 pb-16 md:pb-20">
+    <section className="relative bg-paper overflow-hidden pt-20 sm:pt-28 md:pt-36 pb-12 sm:pb-16 md:pb-20">
       {/* Soft halo */}
       <div className="halo-soft" />
 
       <div className="container-x relative z-10">
         {/* Eyebrow + trust strip */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-2 mb-5 animate-fade-up">
+          <span className="inline-flex items-center gap-2 mb-3 sm:mb-5 animate-fade-up">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--blue)] animate-pulse" />
             <span className="eyebrow text-[var(--muted)]">{eyebrow}</span>
           </span>
 
-          <h1 className="h-display text-[2.75rem] sm:text-[4rem] md:text-[5rem] text-[var(--ink)] mb-6 animate-fade-up" style={{ animationDelay: "0.05s" }}>
+          <h1 className="h-display text-[1.875rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] text-[var(--ink)] mb-4 sm:mb-6 animate-fade-up" style={{ animationDelay: "0.05s" }}>
             {headline}
           </h1>
 
-          <p className="text-base md:text-lg text-[var(--muted)] max-w-xl mx-auto mb-8 animate-fade-up" style={{ animationDelay: "0.15s" }}>
+          <p className="text-sm sm:text-base md:text-lg text-[var(--muted)] max-w-xl mx-auto mb-6 sm:mb-8 animate-fade-up" style={{ animationDelay: "0.15s" }}>
             {sub}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 mb-10 animate-fade-up w-full sm:w-auto justify-center" style={{ animationDelay: "0.25s" }}>
+          <div className="flex flex-col sm:flex-row gap-3 mb-8 sm:mb-10 animate-fade-up w-full sm:w-auto justify-center" style={{ animationDelay: "0.25s" }}>
             <a
               href={ctaPrimary.href}
               target={ctaPrimary.whatsapp ? "_blank" : undefined}
@@ -99,7 +99,7 @@ export function HeroRendy({
         </div>
 
         {/* Hero visual: Before/After split */}
-        <div className="relative mt-12 md:mt-16 max-w-5xl mx-auto animate-fade-up" style={{ animationDelay: "0.45s" }}>
+        <div className="relative mt-8 sm:mt-12 md:mt-16 max-w-5xl mx-auto animate-fade-up" style={{ animationDelay: "0.45s" }}>
           <div className="relative">
             {showBeforeAfter ? (
               <div className="grid grid-cols-2 gap-3 md:gap-4 items-center relative">
