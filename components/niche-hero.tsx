@@ -30,7 +30,7 @@ export function NicheHero({ niche }: { niche: Niche }) {
       trustText={TRUST_MAP[niche.slug]}
       variant={VARIANT_MAP[niche.slug]}
       heroVideo={niche.heroVideo}
-      showBeforeAfter={niche.slug !== "developers"}
+      showBeforeAfter={false}
     />
   );
 }
