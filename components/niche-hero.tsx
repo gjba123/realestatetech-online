@@ -18,7 +18,6 @@ export function NicheHero({ niche }: { niche: Niche }) {
   // Use the existing headline directly but render with display weight
   return (
     <HeroRendy
-      eyebrow={niche.brand}
       headline={<>{niche.headline}</>}
       sub={niche.subhead}
       ctaPrimary={{

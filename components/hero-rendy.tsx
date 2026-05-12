@@ -4,7 +4,7 @@ import Image from "next/image";
 import { bunnyEmbedUrl } from "@/data/niches";
 
 type HeroProps = {
-  eyebrow: string;
+  eyebrow?: string;
   headline: React.ReactNode;
   sub: string;
   ctaPrimary: { label: string; href: string; whatsapp?: boolean };
@@ -42,10 +42,12 @@ export function HeroRendy({
 
           {/* LEFT — Text content */}
           <div>
-            {/* Eyebrow pill */}
-            <span className="eyebrow-pill animate-fade-up mb-5 sm:mb-7 inline-flex">
-              {eyebrow}
-            </span>
+            {/* Eyebrow pill (hidden if empty) */}
+            {eyebrow && (
+              <span className="eyebrow-pill animate-fade-up mb-5 sm:mb-7 inline-flex">
+                {eyebrow}
+              </span>
+            )}
 
             {/* Headline */}
             <h1
@@ -57,11 +59,30 @@ export function HeroRendy({
 
             {/* Sub */}
             <p
-              className="text-sm sm:text-base md:text-[1.05rem] text-[var(--muted)] max-w-lg mb-7 sm:mb-8 animate-fade-up leading-relaxed"
+              className="text-sm sm:text-base md:text-[1.05rem] text-[var(--muted)] max-w-lg mb-6 sm:mb-8 animate-fade-up leading-relaxed"
               style={{ animationDelay: "0.12s" }}
             >
               {sub}
             </p>
+
+            {/* MOBILE-ONLY video — sits between subtext and CTA (only when no before/after) */}
+            {!showBeforeAfter && embedSrc && (
+              <div className="md:hidden mb-6 flex justify-center animate-fade-up" style={{ animationDelay: "0.15s" }}>
+                <div
+                  className="relative w-full max-w-[260px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
+                  style={{ aspectRatio: "9/16" }}
+                >
+                  <iframe
+                    src={embedSrc}
+                    loading="lazy"
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full border-0"
+                    title="Cinematic property reel"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* CTA buttons */}
             <div
@@ -179,7 +200,7 @@ export function HeroRendy({
               </div>
             </div>
           ) : (
-            <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.45s" }}>
+            <div className="hidden md:flex justify-center animate-fade-up" style={{ animationDelay: "0.45s" }}>
               <div
                 className="relative w-full max-w-[280px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
                 style={{ aspectRatio: "9/16" }}
