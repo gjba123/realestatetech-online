@@ -23,12 +23,13 @@ export function bunnyEmbedUrl(
   opts: { autoplay?: boolean; loop?: boolean; muted?: boolean } = {}
 ) {
   const { autoplay = true, loop = true, muted = true } = opts;
+  // Order matters for Bunny: autoplay+muted must both be true for browser autoplay policy to allow it.
   const params = new URLSearchParams({
-    autoplay: String(autoplay),
-    loop: String(loop),
-    muted: String(muted),
+    autoplay: autoplay ? "true" : "false",
+    muted: muted ? "true" : "false",
+    loop: loop ? "true" : "false",
     preload: "true",
-    responsive: "true",
+    playsinline: "true",
   });
   return `https://iframe.mediadelivery.net/embed/${BUNNY_LIBRARY_ID}/${videoId}?${params.toString()}`;
 }

@@ -74,13 +74,12 @@ export function HeroRendy({
             {!showBeforeAfter && embedSrc && (
               <div className="md:hidden mb-6 flex justify-center animate-fade-up" style={{ animationDelay: "0.15s" }}>
                 <div
-                  className="relative w-full max-w-[260px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
+                  className="relative w-full max-w-[240px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
                   style={{ aspectRatio: "9/16" }}
                 >
                   <iframe
                     src={embedSrc}
-                    loading="lazy"
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                    allow="autoplay; encrypted-media; picture-in-picture; accelerometer; gyroscope"
                     allowFullScreen
                     className="absolute inset-0 w-full h-full border-0"
                     title="Cinematic property reel"
@@ -219,14 +218,13 @@ export function HeroRendy({
           ) : (
             <div className="hidden md:flex justify-center animate-fade-up" style={{ animationDelay: "0.45s" }}>
               <div
-                className="relative w-full max-w-[360px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
+                className="relative w-full max-w-[280px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
                 style={{ aspectRatio: "9/16" }}
               >
                 {embedSrc && (
                   <iframe
                     src={embedSrc}
-                    loading="lazy"
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                    allow="autoplay; encrypted-media; picture-in-picture; accelerometer; gyroscope"
                     allowFullScreen
                     className="absolute inset-0 w-full h-full border-0"
                     title="Cinematic property reel"
