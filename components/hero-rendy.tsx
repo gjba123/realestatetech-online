@@ -180,19 +180,20 @@ export function HeroRendy({
             </div>
           ) : (
             <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.45s" }}>
-              <div className="card-base p-4 max-w-[240px] mx-auto">
-                <div className="relative rounded-[1.4rem] overflow-hidden bg-black" style={{ aspectRatio: "9/16" }}>
-                  {embedSrc && (
-                    <iframe
-                      src={embedSrc}
-                      loading="lazy"
-                      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full border-0"
-                      title="Cinematic property reel"
-                    />
-                  )}
-                </div>
+              <div
+                className="relative w-full max-w-[280px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
+                style={{ aspectRatio: "9/16" }}
+              >
+                {embedSrc && (
+                  <iframe
+                    src={embedSrc}
+                    loading="lazy"
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full border-0"
+                    title="Cinematic property reel"
+                  />
+                )}
               </div>
             </div>
           )}
