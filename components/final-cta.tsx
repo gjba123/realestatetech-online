@@ -29,8 +29,8 @@ export function FinalCta({ niche }: { niche: Niche }) {
               <span className="text-[var(--blue)]">listings unforgettable.</span>
             </h2>
             <p className="text-[var(--muted)] text-base md:text-lg max-w-md mx-auto mb-10">
-              Send us your photos. We&apos;ll send back a free first reel within 24
-              hours. If you don&apos;t love it, we don&apos;t charge you a cent.
+              Send us your photos. We&apos;ll deliver your first reel within 24
+              hours. Small refundable deposit only — if you don&apos;t love it, we refund 100%.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">

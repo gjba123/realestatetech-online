@@ -59,14 +59,16 @@ export function Header({ variant = "auto" }: { variant?: "auto" | "light" | "dar
 
         {/* CTA */}
         <div className="flex items-center gap-3">
-          <a
-            href={waUrl("Hi, I'd like to start my free first reel.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex btn-ink text-sm px-5 py-2.5"
-          >
-            Start free reel →
-          </a>
+          <div className="hidden md:block">
+            <a
+              href={waUrl("Hi, I'd like to book my first reel.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ink text-sm px-5 py-2.5"
+            >
+              Book a reel →
+            </a>
+          </div>
           <button
             type="button"
             onClick={() => setOpen(!open)}
@@ -99,13 +101,13 @@ export function Header({ variant = "auto" }: { variant?: "auto" | "light" | "dar
               </Link>
             ))}
             <a
-              href={waUrl("Hi, I'd like to start my free first reel.")}
+              href={waUrl("Hi, I'd like to book my first reel.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="btn-ink w-full text-center mt-2"
             >
-              Start free reel →
+              Book a reel →
             </a>
           </div>
         </div>

@@ -53,7 +53,7 @@ export default function Home() {
           </>
         }
         sub="We shoot, edit, and deliver scroll-stopping property reels in 24 hours — built specifically to convert browsers into bookings. No expensive crews. No week-long waits. No risk."
-        ctaPrimary={{ label: "Start free first reel →", href: "#pick-your-need" }}
+        ctaPrimary={{ label: "Book your first reel →", href: "#pick-your-need" }}
         ctaSecondary={{ label: "See how it works", href: "#how-it-works" }}
         trustText="140+ Superhosts · 4.96/5 avg satisfaction"
         variant="home"
