@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { FloatNotifications } from "@/components/float-notifications";
 import { bunnyEmbedUrl } from "@/data/niches";
 
 type HeroProps = {
@@ -12,7 +11,6 @@ type HeroProps = {
   ctaSecondary?: { label: string; href: string };
   trustText: string;
   variant?: "home" | "hosts" | "realtors" | "developers";
-  /** Bunny Stream video GUID */
   heroVideo?: string;
   beforeImage?: string;
   showBeforeAfter?: boolean;
@@ -33,133 +31,124 @@ export function HeroRendy({
   const embedSrc = heroVideo ? bunnyEmbedUrl(heroVideo) : null;
 
   return (
-    <section className="relative bg-paper overflow-hidden pt-20 sm:pt-28 md:pt-36 pb-12 sm:pb-16 md:pb-20">
-      {/* Soft halo */}
-      <div className="halo-soft" />
+    <section className="relative bg-[var(--bg)] overflow-hidden pt-20 sm:pt-24 pb-16 sm:pb-20 md:pb-24">
+      {/* Soft background halo */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(15,61,46,0.05), transparent 70%)" }}
+      />
 
       <div className="container-x relative z-10">
-        {/* Eyebrow + trust strip */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-2 mb-3 sm:mb-5 animate-fade-up">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--blue)] animate-pulse" />
-            <span className="eyebrow text-[var(--muted)]">{eyebrow}</span>
-          </span>
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
 
-          <h1 className="h-display text-[1.875rem] sm:text-[3rem] md:text-[4rem] lg:text-[5rem] text-[var(--ink)] mb-4 sm:mb-6 animate-fade-up" style={{ animationDelay: "0.05s" }}>
-            {headline}
-          </h1>
+          {/* LEFT — Text content */}
+          <div>
+            {/* Eyebrow pill */}
+            <span className="eyebrow-pill animate-fade-up mb-5 sm:mb-7 inline-flex">
+              {eyebrow}
+            </span>
 
-          <p className="text-sm sm:text-base md:text-lg text-[var(--muted)] max-w-xl mx-auto mb-6 sm:mb-8 animate-fade-up" style={{ animationDelay: "0.15s" }}>
-            {sub}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 mb-8 sm:mb-10 animate-fade-up w-full sm:w-auto justify-center" style={{ animationDelay: "0.25s" }}>
-            <a
-              href={ctaPrimary.href}
-              target={ctaPrimary.whatsapp ? "_blank" : undefined}
-              rel={ctaPrimary.whatsapp ? "noopener noreferrer" : undefined}
-              className={`${ctaPrimary.whatsapp ? "btn-whatsapp" : "btn-primary"} btn-mobile-full`}
+            {/* Headline */}
+            <h1
+              className="h-display text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] text-[var(--ink)] mb-5 sm:mb-6 animate-fade-up leading-[1.05]"
+              style={{ animationDelay: "0.05s" }}
             >
-              {ctaPrimary.whatsapp && (
-                <svg className="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-                </svg>
-              )}
-              {ctaPrimary.label}
-            </a>
-            {ctaSecondary && (
-              <a href={ctaSecondary.href} className="btn-ghost btn-mobile-full">
-                {ctaSecondary.label}
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-            )}
-          </div>
+              {headline}
+            </h1>
 
-          {/* Avatar trust strip */}
-          <div className="flex items-center gap-3 animate-fade-up" style={{ animationDelay: "0.35s" }}>
-            <div className="flex -space-x-2">
-              {[
-                "linear-gradient(135deg,#FFB68C,#FF7A45)",
-                "linear-gradient(135deg,#A4D4FF,#4F8BE2)",
-                "linear-gradient(135deg,#FFD27F,#D4AF37)",
-                "linear-gradient(135deg,#C2E2A8,#67B143)",
-                "linear-gradient(135deg,#E0BEFF,#8B5CF6)",
-              ].map((g, i) => (
-                <span
-                  key={i}
-                  className="w-7 h-7 rounded-full border-2 border-[var(--bg)]"
-                  style={{ background: g }}
-                />
+            {/* Sub */}
+            <p
+              className="text-sm sm:text-base md:text-[1.05rem] text-[var(--muted)] max-w-lg mb-7 sm:mb-8 animate-fade-up leading-relaxed"
+              style={{ animationDelay: "0.12s" }}
+            >
+              {sub}
+            </p>
+
+            {/* CTA buttons */}
+            <div
+              className="flex flex-col sm:flex-row gap-3 mb-6 animate-fade-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <a
+                href={ctaPrimary.href}
+                target={ctaPrimary.whatsapp ? "_blank" : undefined}
+                rel={ctaPrimary.whatsapp ? "noopener noreferrer" : undefined}
+                className="btn-ink btn-mobile-full"
+              >
+                {ctaPrimary.whatsapp && (
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                  </svg>
+                )}
+                {ctaPrimary.label}
+              </a>
+              {ctaSecondary && (
+                <a href={ctaSecondary.href} className="btn-ghost btn-mobile-full">
+                  {ctaSecondary.label}
+                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              )}
+            </div>
+
+            {/* Trust strip — checkmarks */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 animate-fade-up" style={{ animationDelay: "0.28s" }}>
+              {["24-hour delivery", "100% refund guarantee", "Small deposit only"].map((item) => (
+                <span key={item} className="flex items-center gap-1.5 text-xs text-[var(--muted)]">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M2 6l3 3 5-5" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {item}
+                </span>
               ))}
             </div>
-            <p className="text-xs md:text-sm text-[var(--muted)]">{trustText}</p>
-          </div>
-        </div>
 
-        {/* Hero visual: Before/After split */}
-        <div className="relative mt-8 sm:mt-12 md:mt-16 max-w-5xl mx-auto animate-fade-up" style={{ animationDelay: "0.45s" }}>
-          <div className="relative">
-            {showBeforeAfter ? (
-              <div className="grid grid-cols-2 gap-3 md:gap-4 items-center relative">
-                {/* BEFORE — photo grid */}
-                <div className="relative">
-                  <div className="absolute -top-3 left-3 z-10 px-3 py-1 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[11px] font-semibold text-[var(--muted)] tracking-wider">
-                    BEFORE · static photos
-                  </div>
-                  <div className="card-base p-3 md:p-4">
-                    <Image
-                      src={beforeImage}
-                      alt="Static property photos"
-                      width={520}
-                      height={400}
-                      className="w-full h-auto rounded-lg"
-                      priority
-                    />
-                  </div>
-                </div>
-
-                {/* AFTER — phone with video */}
-                <div className="relative">
-                  <div className="absolute -top-3 left-3 z-10 px-3 py-1 rounded-full bg-[var(--blue)] text-white text-[11px] font-semibold tracking-wider">
-                    AFTER · cinematic reel
-                  </div>
-                  <div className="card-base p-3 md:p-4 flex justify-center">
-                    <div
-                      className="relative rounded-[1.4rem] overflow-hidden bg-black w-full max-w-[200px]"
-                      style={{ aspectRatio: "9/16" }}
-                    >
-                      {embedSrc && (
-                        <iframe
-                          src={embedSrc}
-                          loading="lazy"
-                          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-                          allowFullScreen
-                          className="absolute inset-0 w-full h-full border-0"
-                          title="Cinematic property reel"
-                        />
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Arrow between */}
-                <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-[var(--ink)] text-white items-center justify-center shadow-lg">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
+            {/* Avatar row + trust text */}
+            <div className="flex items-center gap-3 mt-5 animate-fade-up" style={{ animationDelay: "0.35s" }}>
+              <div className="flex -space-x-2">
+                {[
+                  "linear-gradient(135deg,#FFB68C,#FF7A45)",
+                  "linear-gradient(135deg,#A4D4FF,#4F8BE2)",
+                  "linear-gradient(135deg,#FFD27F,#D4AF37)",
+                  "linear-gradient(135deg,#C2E2A8,#67B143)",
+                  "linear-gradient(135deg,#E0BEFF,#8B5CF6)",
+                ].map((g, i) => (
+                  <span key={i} className="w-7 h-7 rounded-full border-2 border-[var(--bg)]" style={{ background: g }} />
+                ))}
               </div>
-            ) : (
-              // Centered phone (when no before/after)
-              <div className="flex justify-center">
-                <div className="card-base p-4 max-w-[260px] mx-auto">
-                  <div
-                    className="relative rounded-[1.4rem] overflow-hidden bg-black"
-                    style={{ aspectRatio: "9/16" }}
-                  >
-                    {embedSrc && (
+              <p className="text-xs text-[var(--muted)]">{trustText}</p>
+            </div>
+          </div>
+
+          {/* RIGHT — Before / After visual */}
+          {showBeforeAfter ? (
+            <div className="relative flex justify-center items-center animate-fade-up" style={{ animationDelay: "0.45s" }}>
+              <div className="relative w-full max-w-[420px]">
+
+                {/* BEFORE card — slightly behind/left */}
+                <div className="absolute top-6 left-0 w-[44%] rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--card)] shadow-sm z-0">
+                  <div className="bg-[var(--bg-2)] px-2.5 py-1 text-[10px] font-bold tracking-widest text-[var(--muted)] border-b border-[var(--border)]">
+                    BEFORE
+                  </div>
+                  <Image
+                    src={beforeImage}
+                    alt="Static property photo"
+                    width={260}
+                    height={320}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                </div>
+
+                {/* AFTER card — phone frame, front */}
+                <div className="relative ml-auto w-[58%] z-10">
+                  <div className="rounded-2xl overflow-hidden border-2 border-[var(--ink)] bg-black shadow-xl"
+                    style={{ aspectRatio: "9/16" }}>
+                    <div className="absolute top-0 left-0 right-0 bg-[var(--ink)] px-3 py-1.5 z-10 flex items-center justify-between">
+                      <span className="text-[10px] font-bold tracking-widest text-white/70">BEFORE</span>
+                      <span className="text-[10px] font-bold tracking-widest text-white px-2 py-0.5 bg-[var(--green)] rounded-full">AFTER</span>
+                    </div>
+                    {embedSrc ? (
                       <iframe
                         src={embedSrc}
                         loading="lazy"
@@ -168,15 +157,45 @@ export function HeroRendy({
                         className="absolute inset-0 w-full h-full border-0"
                         title="Cinematic property reel"
                       />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-[var(--green)]">
+                        <span className="text-white/50 text-sm">Video</span>
+                      </div>
                     )}
+                  </div>
+
+                  {/* 24h badge */}
+                  <div className="absolute -top-4 -right-4 notif-card px-3 py-2 text-xs font-semibold text-[var(--ink)] flex items-center gap-1.5 animate-float" style={{ "--rot": "-2deg" } as React.CSSProperties}>
+                    <span className="text-[var(--green)] font-bold text-sm">24h</span>
+                    <span className="text-[var(--muted)] text-[10px] leading-tight">in your inbox,<br/>guaranteed</span>
+                  </div>
+
+                  {/* +38% badge */}
+                  <div className="absolute -bottom-4 -left-8 notif-card px-3 py-2 text-xs animate-float" style={{ "--rot": "1.5deg", animationDelay: "1s" } as React.CSSProperties}>
+                    <span className="font-display text-lg font-bold text-[var(--ink)] italic">+38%</span>
+                    <p className="text-[10px] text-[var(--muted)] leading-tight mt-0.5">avg booking lift<br/>in 6 weeks</p>
                   </div>
                 </div>
               </div>
-            )}
-
-            {/* Floating notifications */}
-            <FloatNotifications variant={variant} />
-          </div>
+            </div>
+          ) : (
+            <div className="flex justify-center animate-fade-up" style={{ animationDelay: "0.45s" }}>
+              <div className="card-base p-4 max-w-[240px] mx-auto">
+                <div className="relative rounded-[1.4rem] overflow-hidden bg-black" style={{ aspectRatio: "9/16" }}>
+                  {embedSrc && (
+                    <iframe
+                      src={embedSrc}
+                      loading="lazy"
+                      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full border-0"
+                      title="Cinematic property reel"
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

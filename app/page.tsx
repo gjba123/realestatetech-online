@@ -40,37 +40,38 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
 
-      {/* HERO — Rendy style */}
       <HeroRendy
-        eyebrow="CinemaStay · AI Cinematic Property Videos"
+        eyebrow="Now booking · 24h delivery"
         headline={
           <>
-            Cinematic property videos
+            Reels that fill your{" "}
+            <em className="font-italic-display not-italic" style={{ color: "var(--green)", fontStyle: "italic" }}>calendar</em>
+            {" "}— not
             <br />
-            <span className="text-[var(--blue)]">from your photos.</span>
-            <br />
-            In 24-72 hours.
+            your{" "}
+            <span className="strike-orange">camera roll.</span>
           </>
         }
-        sub="AI-powered cinematic videos for Airbnb hosts, real estate agents, and developers. No shoot needed. Just photos."
-        ctaPrimary={{ label: "Pick Your Need", href: "#pick-your-need" }}
-        ctaSecondary={{ label: "See Examples", href: "#samples" }}
-        trustText="Trusted by 100+ agents · Diani, Miami, Nairobi, Austin"
+        sub="We shoot, edit, and deliver scroll-stopping property reels in 24 hours — built specifically to convert browsers into bookings. No expensive crews. No week-long waits. No risk."
+        ctaPrimary={{ label: "Start free first reel →", href: "#pick-your-need" }}
+        ctaSecondary={{ label: "See how it works", href: "#how-it-works" }}
+        trustText="140+ Superhosts · 4.96/5 avg satisfaction"
         variant="home"
         heroVideo={BUNNY_VIDEOS.post1}
         showBeforeAfter={true}
       />
 
       {/* 3-CARD CHOOSER */}
-      <section id="pick-your-need" className="section-white py-14 sm:py-20 md:py-28 border-t border-[var(--border)]">
+      <section id="pick-your-need" className="bg-[var(--bg)] py-14 sm:py-20 md:py-28 border-t border-[var(--border)]">
         <div className="container-x">
-          <div className="text-center mb-12 max-w-2xl mx-auto">
-            <span className="eyebrow text-[var(--blue)]">Choose Your Path</span>
-            <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] mt-3 text-[var(--ink)] leading-[1.1]">
-              Built for three kinds of growth.
+          <div className="max-w-2xl mb-12">
+            <span className="eyebrow-pill mb-5 inline-flex">What you get</span>
+            <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] text-[var(--ink)] leading-[1.08]">
+              Built for three kinds of{" "}
+              <em className="font-italic-display" style={{ color: "var(--green)" }}>growth.</em>
             </h2>
             <p className="text-[var(--muted)] mt-4 text-base md:text-lg">
-              Same AI engine, different deliverables. Pick the one that matches what you sell.
+              Same cinematic engine, different deliverables. Pick the one that matches what you sell.
             </p>
           </div>
 
@@ -82,9 +83,8 @@ export default function Home() {
                   <path d="M2.25 12 12 2.25l9.75 9.75M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               }
-              brand="For Airbnb Hosts"
+              brand="Airbnb Hosts"
               pitch="Get 30% more bookings"
-              price="From KES 6,000 / $79 per property"
               cta="I'm a Host"
             />
             <ServiceCard
@@ -94,9 +94,8 @@ export default function Home() {
                   <path d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               }
-              brand="For Real Estate Agents"
-              pitch="Sell listings 2x faster"
-              price="From KES 12,000 / $179 per listing"
+              brand="Real Estate Agents"
+              pitch="Sell listings 2× faster"
               cta="I'm a Realtor"
             />
             <ServiceCard
@@ -106,24 +105,24 @@ export default function Home() {
                   <path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               }
-              brand="For Property Developers"
+              brand="Property Developers"
               pitch="Pre-launch cinematic packages"
-              price="From KES 45,000 / $750 per project"
               cta="I'm a Developer"
             />
           </div>
         </div>
       </section>
 
-      {/* Founder + samples */}
-      <section id="samples" className="section-warm py-14 sm:py-20 md:py-28">
+      {/* Sample reels */}
+      <section id="samples" className="bg-[var(--card)] py-14 sm:py-20 md:py-28 border-t border-[var(--border)]">
         <div className="container-x">
-          <div className="text-center mb-12">
-            <span className="eyebrow text-[var(--blue)]">Live Examples</span>
-            <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] mt-3 text-[var(--ink)] leading-[1.1]">
-              Real listings. <span className="text-[var(--blue)]">Real reels.</span>
+          <div className="max-w-2xl mb-12">
+            <span className="eyebrow-pill mb-5 inline-flex">Live examples</span>
+            <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] text-[var(--ink)] leading-[1.08]">
+              Real listings.{" "}
+              <em className="font-italic-display" style={{ color: "var(--green)" }}>Real reels.</em>
             </h2>
-            <p className="text-[var(--muted)] mt-4 max-w-md mx-auto">
+            <p className="text-[var(--muted)] mt-4 text-base">
               Made by <span className="text-[var(--ink)] font-semibold">Burhan</span> · 100+ cinematic videos delivered since 2024
             </p>
           </div>
@@ -135,7 +134,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
       <Testimonials />
 
       <Footer />

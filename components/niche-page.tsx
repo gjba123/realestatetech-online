@@ -6,13 +6,11 @@ import { SocialProofBar } from "@/components/social-proof-bar";
 import { ProblemSection } from "@/components/problem-section";
 import { HowItWorks } from "@/components/how-it-works";
 import { OfferStack } from "@/components/offer-stack";
-import { PricingSection } from "@/components/pricing-section";
 import { PortfolioVideos } from "@/components/portfolio-videos";
 import { Testimonials } from "@/components/testimonials";
 import { FaqSection } from "@/components/faq";
 import { AboutSection } from "@/components/about-section";
 import { FinalCta } from "@/components/final-cta";
-import { StickyPricingBar } from "@/components/sticky-pricing-bar";
 import { CtaStack } from "@/components/cta-stack";
 import type { Niche } from "@/data/niches";
 
@@ -33,7 +31,6 @@ export function NichePage({ niche }: { niche: Niche }) {
       {/* CTA stack #2 — after offer stack */}
       <CtaStack slug={niche.slug} />
 
-      <PricingSection niche={niche} />
       <PortfolioVideos
         items={niche.portfolioVideos}
         placeholder={niche.portfolioPlaceholder}
@@ -48,7 +45,6 @@ export function NichePage({ niche }: { niche: Niche }) {
       <FinalCta niche={niche} />
       <Footer />
       <WhatsappFloat message={niche.primaryWaMessage} />
-      <StickyPricingBar niche={niche} />
     </main>
   );
 }
