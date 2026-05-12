@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { waUrl } from "@/data/niches";
+import { CONTACT, waUrl } from "@/data/niches";
+
+const MAIL_HREF = `mailto:${CONTACT.email}?subject=${encodeURIComponent("Booking — Cinematic Reel")}`;
 
 const NAV_LINKS = [
   { label: "How it works", href: "#how-it-works" },
@@ -59,7 +61,7 @@ export function Header({ variant = "auto" }: { variant?: "auto" | "light" | "dar
 
         {/* CTA */}
         <div className="flex items-center gap-3">
-          <div className="hidden md:block">
+          <div className="hidden md:block wa-only">
             <a
               href={waUrl("Hi, I'd like to book my first reel.")}
               target="_blank"
@@ -67,6 +69,11 @@ export function Header({ variant = "auto" }: { variant?: "auto" | "light" | "dar
               className="btn-ink text-sm px-5 py-2.5"
             >
               Book a reel →
+            </a>
+          </div>
+          <div className="hidden md:block intl-only">
+            <a href={MAIL_HREF} className="btn-ink text-sm px-5 py-2.5">
+              Email us →
             </a>
           </div>
           <button
@@ -105,9 +112,16 @@ export function Header({ variant = "auto" }: { variant?: "auto" | "light" | "dar
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="btn-ink w-full text-center mt-2"
+              className="btn-ink w-full text-center mt-2 wa-only"
             >
               Book a reel →
+            </a>
+            <a
+              href={MAIL_HREF}
+              onClick={() => setOpen(false)}
+              className="btn-ink w-full text-center mt-2 intl-only"
+            >
+              Email us →
             </a>
           </div>
         </div>

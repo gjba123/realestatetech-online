@@ -8,6 +8,10 @@ type HeroProps = {
   headline: React.ReactNode;
   sub: string;
   ctaPrimary: { label: string; href: string; whatsapp?: boolean };
+  /** Alternate primary CTA for international visitors (e.g. mailto). When provided
+   *  AND ctaPrimary.whatsapp is true, the WhatsApp CTA is wrapped in .wa-only and
+   *  the email CTA is wrapped in .intl-only — locale CSS shows the right one. */
+  ctaPrimaryEmail?: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
   trustText: string;
   variant?: "home" | "hosts" | "realtors" | "developers";
@@ -21,6 +25,7 @@ export function HeroRendy({
   headline,
   sub,
   ctaPrimary,
+  ctaPrimaryEmail,
   ctaSecondary,
   trustText,
   variant = "home",
@@ -89,11 +94,12 @@ export function HeroRendy({
               className="flex flex-col sm:flex-row gap-3 mb-6 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
+              {/* Kenya/default primary CTA */}
               <a
                 href={ctaPrimary.href}
                 target={ctaPrimary.whatsapp ? "_blank" : undefined}
                 rel={ctaPrimary.whatsapp ? "noopener noreferrer" : undefined}
-                className="btn-ink btn-mobile-full"
+                className={`btn-ink btn-mobile-full ${ctaPrimary.whatsapp && ctaPrimaryEmail ? "wa-only" : ""}`}
               >
                 {ctaPrimary.whatsapp && (
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -102,6 +108,17 @@ export function HeroRendy({
                 )}
                 {ctaPrimary.label}
               </a>
+
+              {/* International alternate primary CTA — email */}
+              {ctaPrimaryEmail && ctaPrimary.whatsapp && (
+                <a href={ctaPrimaryEmail.href} className="btn-ink btn-mobile-full intl-only">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                    <path d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {ctaPrimaryEmail.label}
+                </a>
+              )}
+
               {ctaSecondary && (
                 <a href={ctaSecondary.href} className="btn-ghost btn-mobile-full">
                   {ctaSecondary.label}

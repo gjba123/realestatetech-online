@@ -61,13 +61,13 @@ export function Footer() {
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs text-[var(--muted)] mr-2">Payment:</span>
             {[
-              { label: "M-Pesa", color: "#11A05A" },
-              { label: "Wise", color: "#9FE870" },
-              { label: "PayPal", color: "#003087" },
+              { label: "M-Pesa", color: "#11A05A", waOnly: true },
+              { label: "Wise", color: "#9FE870", waOnly: false },
+              { label: "PayPal", color: "#003087", waOnly: false },
             ].map((p) => (
               <span
                 key={p.label}
-                className="px-3 py-1.5 rounded-full text-xs font-semibold border border-[var(--border)] bg-white"
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold border border-[var(--border)] bg-white ${p.waOnly ? "wa-only" : ""}`}
                 style={{ color: p.color }}
               >
                 {p.label}

@@ -1,5 +1,5 @@
 import { HeroRendy } from "@/components/hero-rendy";
-import { waUrl, type Niche } from "@/data/niches";
+import { CONTACT, SPEC_CTA, waUrl, type Niche } from "@/data/niches";
 
 const VARIANT_MAP: Record<Niche["slug"], "hosts" | "realtors" | "developers"> = {
   "airbnb-hosts": "hosts",
@@ -13,9 +13,16 @@ const TRUST_MAP: Record<Niche["slug"], string> = {
   "developers": "Built for off-plan launches · 10-50+ unit projects",
 };
 
+const INTL_CTA_LABEL: Record<Niche["slug"], string> = {
+  "airbnb-hosts": "Email Us — 24hr Reply",
+  "realtors": "Email Us — 24hr Reply",
+  "developers": "Email Us — Book Discovery Call",
+};
+
 export function NicheHero({ niche }: { niche: Niche }) {
-  // Format headline as visual lines (split on first sentence boundary)
-  // Use the existing headline directly but render with display weight
+  const emailSubject = SPEC_CTA[niche.slug]?.emailSubject ?? encodeURIComponent("Cinematic Property Videos — Inquiry");
+  const emailHref = `mailto:${CONTACT.email}?subject=${emailSubject}`;
+
   return (
     <HeroRendy
       headline={<>{niche.headline}</>}
@@ -24,6 +31,10 @@ export function NicheHero({ niche }: { niche: Niche }) {
         label: niche.primaryCta,
         href: waUrl(niche.primaryWaMessage),
         whatsapp: true,
+      }}
+      ctaPrimaryEmail={{
+        label: INTL_CTA_LABEL[niche.slug],
+        href: emailHref,
       }}
       ctaSecondary={{ label: "See Sample Videos", href: "#portfolio" }}
       trustText={TRUST_MAP[niche.slug]}

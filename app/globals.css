@@ -406,6 +406,23 @@ hr.divider {
   margin: 0;
 }
 
+/* ── Locale-gated visibility ──────────────────────────
+   International visitors see NO WhatsApp / M-Pesa references.
+   Kenya visitors see the WhatsApp-first experience.
+   ──────────────────────────────────────────────────── */
+.locale-international .wa-only,
+.locale-international .floating-whatsapp {
+  display: none !important;
+}
+.locale-kenya .intl-only {
+  display: none !important;
+}
+/* While geo is still loading, hide both so we don't flash the wrong one */
+html.geo-loading .wa-only,
+html.geo-loading .intl-only {
+  visibility: hidden;
+}
+
 /* ── Missing utility classes ─────────────────────────── */
 .bg-paper { background: var(--bg); }
 
