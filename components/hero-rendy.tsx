@@ -219,7 +219,7 @@ export function HeroRendy({
           ) : (
             <div className="hidden md:flex justify-center animate-fade-up" style={{ animationDelay: "0.45s" }}>
               <div
-                className="relative w-full max-w-[280px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
+                className="relative w-full max-w-[360px] rounded-[1.5rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
                 style={{ aspectRatio: "9/16" }}
               >
                 {embedSrc && (
