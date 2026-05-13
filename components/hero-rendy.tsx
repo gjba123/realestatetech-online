@@ -56,7 +56,7 @@ export function HeroRendy({
 
             {/* Headline */}
             <h1
-              className="h-display text-[1.625rem] sm:text-[2.125rem] md:text-[2.5rem] lg:text-[2.875rem] text-[var(--ink)] mb-4 sm:mb-5 animate-fade-up leading-[1.08]"
+              className="h-display text-[1.5rem] sm:text-[1.875rem] md:text-[2rem] lg:text-[2.25rem] text-[var(--ink)] mb-4 sm:mb-5 animate-fade-up leading-[1.1]"
               style={{ animationDelay: "0.05s" }}
             >
               {headline}
