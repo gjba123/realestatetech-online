@@ -36,7 +36,7 @@ export function HeroRendy({
   const embedSrc = heroVideo ? bunnyEmbedUrl(heroVideo) : null;
 
   return (
-    <section className="relative bg-[var(--bg)] overflow-hidden pt-20 sm:pt-24 pb-16 sm:pb-20 md:pb-24">
+    <section className="relative bg-[var(--bg)] overflow-hidden pt-16 sm:pt-20 pb-12 sm:pb-16 md:pb-20">
       {/* Soft background halo */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(15,61,46,0.05), transparent 70%)" }}
@@ -56,7 +56,7 @@ export function HeroRendy({
 
             {/* Headline */}
             <h1
-              className="h-display text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] text-[var(--ink)] mb-5 sm:mb-6 animate-fade-up leading-[1.05]"
+              className="h-display text-[1.625rem] sm:text-[2.125rem] md:text-[2.5rem] lg:text-[2.875rem] text-[var(--ink)] mb-4 sm:mb-5 animate-fade-up leading-[1.08]"
               style={{ animationDelay: "0.05s" }}
             >
               {headline}
@@ -64,7 +64,7 @@ export function HeroRendy({
 
             {/* Sub */}
             <p
-              className="text-sm sm:text-base md:text-[1.05rem] text-[var(--muted)] max-w-lg mb-6 sm:mb-8 animate-fade-up leading-relaxed"
+              className="text-sm sm:text-[0.95rem] md:text-base text-[var(--muted)] max-w-md mb-5 sm:mb-6 animate-fade-up leading-relaxed"
               style={{ animationDelay: "0.12s" }}
             >
               {sub}
