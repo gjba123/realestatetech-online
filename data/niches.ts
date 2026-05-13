@@ -81,11 +81,13 @@ export type FAQ = { q: string; a: string };
 export type Step = { n: string; title: string; desc: string };
 export type PricingTier = { region: string; flag: string; price: string };
 export type BundleOption = { label: string; price: string; save: string };
+export type ProblemCard = { n: string; title: string; desc: string };
+export type WhoItsForItem = { title: string; desc: string };
 
 export type Niche = {
   slug: "airbnb-hosts" | "realtors" | "developers";
-  brand: string;          // "For Airbnb Hosts"
-  shortLabel: string;     // "Hosts" — for sticky bar
+  brand: string;
+  shortLabel: string;
   heroVideo: string;
   headline: string;
   subhead: string;
@@ -94,6 +96,10 @@ export type Niche = {
   socialProof: string;
   problemP1: string;
   problemP2: string;
+  /** Optional: 3 problem cards. If absent the section uses defaults. */
+  problemCards?: ProblemCard[];
+  /** Optional: target audience cards. If absent the section is skipped. */
+  whoItsFor?: WhoItsForItem[];
   steps: Step[];
   offerStack: string[];
   pricing: { tiers: PricingTier[]; bundles: BundleOption[]; depositNote: string };
@@ -106,54 +112,102 @@ export type Niche = {
 export const NICHES: Record<Niche["slug"], Niche> = {
   "airbnb-hosts": {
     slug: "airbnb-hosts",
-    brand: "For Airbnb Hosts",
-    shortLabel: "Hosts",
+    brand: "Property Reels",
+    shortLabel: "Property Reels",
     heroVideo: BUNNY_VIDEOS.post2,
-    headline: "Get 30% More Airbnb Bookings With Cinematic Reels From Your Listing Photos",
-    subhead: "Delivered in 24 hours. Small deposit only — full refund if we miss the deadline.",
-    primaryCta: "WhatsApp Us — 24hr Delivery",
-    primaryWaMessage: "Hi, I'm an Airbnb host interested in cinematic videos for my listing.",
-    socialProof: "Trusted by hosts in: Diani · Watamu · Naivasha · Miami · Austin · Asheville",
-    problemP1: "Your photos are good. The competition's photos are also good. Video is what wins the algorithm now.",
-    problemP2: "Airbnb's own data shows listings with video get 2-3x more views. But shooting video means hiring crews, scheduling shoots, paying $500+. Until now.",
+    headline: "Turn your property photos into cinematic Reels that bring more WhatsApp, DM, and booking inquiries.",
+    subhead: "For villas, guesthouses, rentals, and real estate listings in Kenya and the USA. Send your photos, get 3 vertical videos in 24 hours. No shoot needed.",
+    primaryCta: "WhatsApp Me Your Photos",
+    primaryWaMessage: "Hi Burhan, I'd like to send my property photos and get 3 cinematic reels.",
+    socialProof: "100+ property videos delivered · Kenya-based · USA clients · Refund if late",
+    problemP1: "Photos show the property. Video makes people stop and imagine staying there.",
+    problemP2: "Your prospects already scroll past hundreds of property photos every week. A cinematic short video gives your space movement, emotion, and a clear reason to message you.",
+    problemCards: [
+      {
+        n: "01",
+        title: "Photos alone are easy to ignore.",
+        desc: "Static photos blend into every other listing on Instagram, Facebook, and listing sites. Scrollers don't stop.",
+      },
+      {
+        n: "02",
+        title: "Hiring a videographer is expensive and slow.",
+        desc: "A traditional shoot costs hundreds, takes days to schedule, and even longer to edit — by the time it ships, the moment is gone.",
+      },
+      {
+        n: "03",
+        title: "Social media needs fresh video often.",
+        desc: "Reels, TikTok, and Stories reward consistency. One shoot a year doesn't feed the algorithm — short videos from your existing photos do.",
+      },
+    ],
+    whoItsFor: [
+      { title: "Villas, cottages & holiday homes", desc: "Coastal villas, cabins, retreats — anywhere you want direct booking inquiries instead of agency commissions." },
+      { title: "Boutique stays & guesthouses", desc: "Small, design-led stays that need cinematic content to stand out on Instagram and Booking.com." },
+      { title: "Small rental businesses (1–15 properties)", desc: "Owners and managers running short-stay rentals who need a steady flow of social-ready video." },
+      { title: "Realtors & agents posting listings", desc: "Agents who post listings on Instagram, TikTok, and WhatsApp Status and want videos that attract buyer leads and viewing requests." },
+    ],
     steps: [
-      { n: "01", title: "Send your photos", desc: "Drop 5-10 photos of your listing into WhatsApp. Any quality, any device." },
-      { n: "02", title: "We deliver in 24 hours", desc: "3 cinematic videos: vertical Reel + horizontal Airbnb-format + alternate cut." },
-      { n: "03", title: "Upload & watch bookings rise", desc: "Post to Airbnb's video slot, IG, and TikTok. Algorithm rewards video." },
+      {
+        n: "01",
+        title: "Send 10–20 property photos",
+        desc: "WhatsApp or email your best photos, plus location, price, and the WhatsApp or booking link you want people to use.",
+      },
+      {
+        n: "02",
+        title: "I create 3 video angles",
+        desc: "Example: a cinematic tour, an offer video, and a short Story/TikTok cut — each built for a specific platform.",
+      },
+      {
+        n: "03",
+        title: "You review and post",
+        desc: "You get the videos, captions, and CTA text ready for Instagram, Facebook, TikTok, or WhatsApp Status.",
+      },
     ],
     offerStack: [
-      "1 cinematic 15-second Reel (vertical, IG/TikTok ready)",
-      "1 horizontal version for Airbnb's video upload feature",
-      "1 alternate version with different music/cuts",
-      "Music + booking-CTA text overlay",
-      "Your listing name + location branded in",
-      "Delivered in 24 hours",
-      "Small deposit only — pay full amount on approval",
-      "Full refund if not delivered within 24 hours",
+      "3 cinematic vertical videos from your existing photos",
+      "Formatted for Instagram Reels, TikTok, Stories, and WhatsApp Status",
+      "Text overlay with location, price, offer, or booking CTA",
+      "Music matched to the property style",
+      "Caption ideas for Instagram, Facebook, and TikTok",
+      "WhatsApp or booking CTA wording included",
+      "1 revision included",
+      "Delivered in 24 hours after photos are received",
     ],
     pricing: {
-      tiers: [
-        { region: "Kenya", flag: "🇰🇪", price: "KES 6,000 per property" },
-        { region: "USA & global", flag: "🌍", price: "$79 per property" },
-      ],
-      bundles: [
-        { label: "Bundle 3 properties", price: "KES 15,000 / $199", save: "Save 17%" },
-        { label: "Bundle 5 properties", price: "KES 22,500 / $299", save: "Save 25%" },
-      ],
-      depositNote: "KES 2,000 / $25 deposit · Final on approval",
+      tiers: [],
+      bundles: [],
+      depositNote: "Small deposit to start · Balance after preview approval · Refund if delivery is late",
     },
-    stickyBar: { title: "Hosts Bundle", price: "KES 6,000 / $79" },
+    stickyBar: { title: "Property Reels", price: "Custom quote" },
     portfolioVideos: [
-      { src: BUNNY_VIDEOS.post1, label: "Coastal villa · Diani" },
-      { src: BUNNY_VIDEOS.post2, label: "City loft · Nairobi" },
-      { src: BUNNY_VIDEOS.post3, label: "Lakeside cabin · Naivasha" },
+      { src: BUNNY_VIDEOS.post1, label: "Beach villa · Diani — built for Instagram Reels + WhatsApp inquiries" },
+      { src: BUNNY_VIDEOS.post2, label: "City loft · Nairobi — DM-for-viewing realtor cut" },
+      { src: BUNNY_VIDEOS.post3, label: "Lakeside cabin · Naivasha — booking promo Story" },
     ],
     faqs: [
-      { q: "Will Airbnb let me upload this video?", a: "Yes — designed specifically for Airbnb's new video feature, plus IG and TikTok formats included." },
-      { q: "What if my listing photos are low quality?", a: "We work with what you have. We can also do mild enhancement included free." },
-      { q: "How fast can you really deliver?", a: "24 hours from when we receive your photos and confirmation. If we miss 24 hours, full refund." },
-      { q: "Can I add my own branding?", a: "Yes. Include your booking link or contact info as text overlay at no extra cost." },
-      { q: "Do I own the video?", a: "100%. Use it forever, anywhere." },
+      {
+        q: "Do I need to shoot new video?",
+        a: "No. I create the videos from your existing photos. Clear daylight photos work best.",
+      },
+      {
+        q: "Can this work for real estate listings, not just rentals?",
+        a: "Yes. For agents, the videos are built to attract buyer leads, viewing requests, and listing inquiries.",
+      },
+      {
+        q: "What should I send?",
+        a: "Send 10–20 photos, property name, location, price or nightly rate, and the link or WhatsApp number you want people to use.",
+      },
+      {
+        q: "What if I don't like the first version?",
+        a: "One revision is included. The balance is paid only after you approve the preview.",
+      },
+      {
+        q: "Can you add my logo or phone number?",
+        a: "Yes. I can add your logo, WhatsApp number, location, price, booking link, or call-to-action text.",
+      },
+      {
+        q: "Do you guarantee bookings?",
+        a: "No one can honestly guarantee bookings from one video. What I guarantee is a professional video delivered in 24 hours, or I refund you if I am late.",
+      },
     ],
   },
 

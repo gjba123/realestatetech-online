@@ -8,6 +8,6 @@ export const metadata: Metadata = {
     "Turn your property photos into cinematic Reels that bring more WhatsApp, DM, and booking inquiries. 3 vertical videos in 24 hours. No shoot needed. Kenya + USA.",
 };
 
-export default function AirbnbHostsPage() {
+export default function PropertyReelsPage() {
   return <NichePage niche={NICHES["airbnb-hosts"]} />;
 }

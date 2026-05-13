@@ -1,4 +1,6 @@
-const PROBLEMS = [
+type Card = { n: string; title: string; desc: string };
+
+const DEFAULT_CARDS: Card[] = [
   {
     n: "01",
     title: "Photos blend in.",
@@ -7,32 +9,38 @@ const PROBLEMS = [
   {
     n: "02",
     title: "Production is brutal.",
-    desc: "A traditional shoot costs $800–$2,000, takes 7–10 days, and the edit still misses the moments that drive bookings.",
+    desc: "A traditional shoot is expensive, takes days to schedule, and the edit still misses the moments that drive bookings.",
   },
   {
     n: "03",
     title: "Algorithms favor reels.",
-    desc: "Instagram, TikTok, and Airbnb's listing pages now prioritize short video. Hosts without it pay 2–3× more for the same booked night.",
+    desc: "Instagram, TikTok, and listing pages now prioritize short video. Properties without it lose attention to those that have it.",
   },
 ];
 
-export function ProblemSection({ p1, p2 }: { p1: string; p2: string }) {
+export function ProblemSection({
+  p1,
+  p2,
+  cards,
+}: {
+  p1: string;
+  p2: string;
+  cards?: Card[];
+}) {
+  const items = cards && cards.length ? cards : DEFAULT_CARDS;
   return (
     <section className="bg-[var(--bg)] py-14 sm:py-20 md:py-28 border-t border-[var(--border)]">
       <div className="container-x">
         <div className="max-w-3xl mb-12 sm:mb-14">
           <span className="eyebrow-pill mb-5 inline-flex">The problem</span>
           <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] text-[var(--ink)] leading-[1.08] mb-4">
-            {p1.split(" ").slice(0, -2).join(" ")}{" "}
-            <em className="font-italic-display not-italic" style={{ color: "var(--green)", fontStyle: "italic" }}>
-              {p1.split(" ").slice(-2).join(" ")}
-            </em>
+            {p1}
           </h2>
           <p className="text-base md:text-lg text-[var(--muted)] leading-relaxed">{p2}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 sm:gap-5">
-          {PROBLEMS.map((p) => (
+          {items.map((p) => (
             <div key={p.n} className="card-cream p-6 sm:p-7 flex flex-col gap-3">
               <span className="num-marker">{p.n}</span>
               <h3 className="h-display text-[1.15rem] sm:text-[1.25rem] text-[var(--ink)]">

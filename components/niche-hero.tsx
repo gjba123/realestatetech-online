@@ -8,13 +8,13 @@ const VARIANT_MAP: Record<Niche["slug"], "hosts" | "realtors" | "developers"> = 
 };
 
 const TRUST_MAP: Record<Niche["slug"], string> = {
-  "airbnb-hosts": "Trusted by 100+ hosts · Diani · Watamu · Miami · Austin",
+  "airbnb-hosts": "100+ property videos delivered · Kenya-based · USA clients",
   "realtors": "Trusted by realtors closing 40% faster (NAR 2025)",
   "developers": "Built for off-plan launches · 10-50+ unit projects",
 };
 
 const INTL_CTA_LABEL: Record<Niche["slug"], string> = {
-  "airbnb-hosts": "Email Us — 24hr Reply",
+  "airbnb-hosts": "Email Me Your Photos",
   "realtors": "Email Us — 24hr Reply",
   "developers": "Email Us — Book Discovery Call",
 };

@@ -23,14 +23,13 @@ export function FinalCta({ niche }: { niche: Niche }) {
           />
 
           <div className="relative z-10">
-            <span className="eyebrow text-[var(--blue)]">Ready?</span>
+            <span className="eyebrow text-[var(--green)]">Ready?</span>
             <h2 className="h-display text-[1.625rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] mt-3 mb-5 text-[var(--ink)] leading-[1.05]">
-              Let&apos;s make your{" "}
-              <span className="text-[var(--blue)]">listings unforgettable.</span>
+              Ready to turn your property photos into{" "}
+              <em className="font-italic-display" style={{ color: "var(--green)" }}>videos?</em>
             </h2>
-            <p className="text-[var(--muted)] text-base md:text-lg max-w-md mx-auto mb-10">
-              Send us your photos. We&apos;ll deliver your first reel within 24
-              hours. Small refundable deposit only — if you don&apos;t love it, we refund 100%.
+            <p className="text-[var(--muted)] text-base md:text-lg max-w-xl mx-auto mb-10">
+              Send your photos today. I&apos;ll create 3 cinematic vertical videos in 24 hours, ready for Reels, TikTok, Stories, and WhatsApp Status. Small deposit to start — balance only after you approve the preview.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
