@@ -5,7 +5,6 @@ export function AboutSection() {
     <section className="section-light py-14 sm:py-20 md:py-28">
       <div className="container-x max-w-4xl">
         <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">
-          {/* Founder avatar (initials) */}
           <div
             className="w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center font-display text-3xl font-bold text-white shrink-0"
             style={{
@@ -18,26 +17,24 @@ export function AboutSection() {
           <div>
             <span className="eyebrow text-[var(--blue)]">About</span>
             <h2 className="h-display text-[1.375rem] sm:text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] mt-2 text-[var(--ink)] leading-tight">
-              Built by a video specialist, not a tech bro.
+              Built by a property video specialist.
             </h2>
             <p className="text-[var(--muted)] text-base md:text-lg leading-relaxed mt-5">
               I&apos;m {CONTACT.founderName}. I&apos;ve produced{" "}
               <span className="text-[var(--ink)] font-semibold">
                 100+ cinematic property and lifestyle videos
               </span>{" "}
-              for clients across Kenya and the US since 2024. Now I&apos;m
-              bringing that quality to Airbnb hosts, real estate agents, and
-              property developers — at a price and speed no traditional studio
-              can match.
+              for short-stay hosts, real estate agents, and property developers
+              across multiple markets. CinemaStay brings that quality to teams
+              that need polished video without a slow agency process.
             </p>
 
-            {/* Trust strip */}
             <div className="flex flex-wrap gap-2 mt-6">
               {[
                 "100+ videos delivered",
                 "24-hour turnaround",
                 "100% refund policy",
-                "Built in Kenya · Worldwide clients",
+                "Worldwide clients",
               ].map((t) => (
                 <span
                   key={t}
