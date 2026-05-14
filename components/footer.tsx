@@ -7,7 +7,6 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--surface-2)]">
       <div className="container-x py-14">
-        {/* Top row: brand + nav */}
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-baseline gap-1 mb-3">
@@ -15,8 +14,8 @@ export function Footer() {
               <span className="font-display text-2xl font-bold text-[var(--blue)]">Stay</span>
             </Link>
             <p className="text-[var(--muted)] text-sm max-w-sm leading-relaxed">
-              AI-powered cinematic property videos for Airbnb hosts, real estate
-              agents, and developers. Delivered in 24-72 hours.
+              Cinematic property videos for short-stay hosts, real estate agents,
+              and developers. Delivered fast, formatted for every major platform.
             </p>
           </div>
           <div>
@@ -24,7 +23,7 @@ export function Footer() {
               Services
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-[var(--muted)]">
-              <li><Link href="/reels" className="hover:text-[var(--blue)] transition-colors">Airbnb Hosts</Link></li>
+              <li><Link href="/reels" className="hover:text-[var(--blue)] transition-colors">Property Reels</Link></li>
               <li><Link href="/realtors" className="hover:text-[var(--blue)] transition-colors">Realtors</Link></li>
               <li><Link href="/developers" className="hover:text-[var(--blue)] transition-colors">Developers</Link></li>
             </ul>
@@ -34,7 +33,7 @@ export function Footer() {
               Contact
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-[var(--muted)]">
-              <li>
+              <li className="wa-only">
                 <a
                   href={waUrl("Hi, I'm interested in cinematic property videos.")}
                   target="_blank"
@@ -56,7 +55,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Payment + trust strip */}
         <div className="border-t border-[var(--border)] pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs text-[var(--muted)] mr-2">Payment:</span>
@@ -85,9 +83,9 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom row */}
         <div className="border-t border-[var(--border)] mt-8 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-xs text-[var(--muted)]">© 2026 CinemaStay · Built in Kenya · Serving clients worldwide</p>
+          <p className="text-xs text-[var(--muted)] wa-only">© 2026 CinemaStay · Built in Kenya · Serving clients worldwide</p>
+          <p className="text-xs text-[var(--muted)] intl-only">© 2026 CinemaStay · Serving clients worldwide</p>
           <p className="text-xs text-[var(--muted)]">realestatetech.online</p>
         </div>
       </div>
