@@ -12,7 +12,6 @@ import { FaqSection } from "@/components/faq";
 import { AboutSection } from "@/components/about-section";
 import { FinalCta } from "@/components/final-cta";
 import { CtaStack } from "@/components/cta-stack";
-import { WhoItsFor } from "@/components/who-its-for";
 import type { Niche } from "@/data/niches";
 
 export function NichePage({ niche }: { niche: Niche }) {
@@ -32,7 +31,6 @@ export function NichePage({ niche }: { niche: Niche }) {
       />
       <HowItWorks steps={niche.steps} />
       <OfferStack items={niche.offerStack} />
-      {niche.whoItsFor && <WhoItsFor items={niche.whoItsFor} />}
 
       {/* CTA stack #2 — after offer stack */}
       <CtaStack slug={niche.slug} />
