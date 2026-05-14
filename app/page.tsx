@@ -51,7 +51,7 @@ const FAQS = [
     a: "Most property reel packages are delivered within 24 hours after photos and details are received.",
   },
   {
-    q: "Can this work outside Kenya?",
+    q: "Can this work internationally?",
     a: "Yes. International clients can send photos by email and receive finished videos online.",
   },
 ];
@@ -82,7 +82,7 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--bg)]">
       <Header />
 
-      <section className="relative overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-18 md:pt-32 md:pb-20 border-b border-[var(--border)]">
+      <section className="relative overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-20 md:pt-32 md:pb-20 border-b border-[var(--border)]">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
