@@ -1,22 +1,16 @@
 import { CONTACT } from "@/data/niches";
 
-/**
- * Spec floating WhatsApp button — exact HTML from spec.
- * Styling lives in globals.css `.floating-whatsapp` block.
- * Visible on every page regardless of locale.
- */
 export function WhatsappFloat({ message }: { message?: string }) {
   const text =
     message ||
     "Hi%21%20I%27m%20interested%20in%20cinematic%20property%20videos.";
 
-  // If a non-encoded message is passed, encode it.
   const encoded = /%[0-9A-F]{2}/i.test(text) ? text : encodeURIComponent(text);
 
   return (
     <a
       href={`https://wa.me/${CONTACT.whatsappNumber}?text=${encoded}`}
-      className="floating-whatsapp"
+      className="floating-whatsapp wa-only"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact us on WhatsApp"
