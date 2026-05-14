@@ -38,11 +38,24 @@ export const metadata: Metadata = {
 const GEO_DETECT_SCRIPT = `(function() {
   document.documentElement.classList.add('geo-loading');
 
-  var saved = localStorage.getItem('userLocale');
-  if (saved) {
-    document.documentElement.classList.add('locale-' + saved);
+  function applyLocale(locale) {
+    document.documentElement.classList.add('locale-' + locale);
     document.documentElement.classList.remove('geo-loading');
     document.documentElement.classList.add('geo-detected');
+  }
+
+  function fallbackLocale() {
+    try {
+      var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      return timezone === 'Africa/Nairobi' ? 'kenya' : 'international';
+    } catch (e) {
+      return 'international';
+    }
+  }
+
+  var saved = localStorage.getItem('userLocale');
+  if (saved) {
+    applyLocale(saved);
     return;
   }
 
@@ -50,14 +63,10 @@ const GEO_DETECT_SCRIPT = `(function() {
     .then(function(res) { return res.json(); })
     .then(function(data) {
       var locale = data.country_code === 'KE' ? 'kenya' : 'international';
-      document.documentElement.classList.add('locale-' + locale);
-      document.documentElement.classList.remove('geo-loading');
-      document.documentElement.classList.add('geo-detected');
+      applyLocale(locale);
     })
     .catch(function() {
-      document.documentElement.classList.add('locale-kenya');
-      document.documentElement.classList.remove('geo-loading');
-      document.documentElement.classList.add('geo-detected');
+      applyLocale(fallbackLocale());
     });
 })();
 
