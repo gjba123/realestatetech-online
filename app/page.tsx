@@ -46,8 +46,8 @@ export default function Home() {
           <>
             Reels that fill your{" "}
             <em className="font-italic-display not-italic" style={{ color: "var(--green)", fontStyle: "italic" }}>calendar</em>
-            {" "}— not
-            <br />
+            {" "}— not{" "}
+            <br className="hidden sm:block" />
             your{" "}
             <span className="strike-orange">camera roll.</span>
           </>
