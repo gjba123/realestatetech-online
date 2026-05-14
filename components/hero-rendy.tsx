@@ -36,27 +36,27 @@ export function HeroRendy({
   const embedSrc = heroVideo ? bunnyEmbedUrl(heroVideo) : null;
 
   return (
-    <section className="relative bg-[var(--bg)] overflow-hidden pt-16 sm:pt-20 pb-12 sm:pb-16 md:pb-20">
+    <section className="relative bg-[var(--bg)] overflow-hidden pt-16 sm:pt-20 pb-10 sm:pb-16 md:pb-20">
       {/* Soft background halo */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(15,61,46,0.05), transparent 70%)" }}
       />
 
       <div className="container-x relative z-10">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center">
 
           {/* LEFT — Text content */}
           <div>
             {/* Eyebrow pill (hidden if empty) */}
             {eyebrow && (
-              <span className="eyebrow-pill animate-fade-up mb-5 sm:mb-7 inline-flex">
+              <span className="eyebrow-pill animate-fade-up mb-4 sm:mb-7 inline-flex">
                 {eyebrow}
               </span>
             )}
 
             {/* Headline */}
             <h1
-              className="h-display text-[1.5rem] sm:text-[1.875rem] md:text-[2rem] lg:text-[2.25rem] text-[var(--ink)] mb-4 sm:mb-5 animate-fade-up leading-[1.1]"
+              className="h-display max-w-[22rem] sm:max-w-xl text-[1.35rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] text-[var(--ink)] mb-3 sm:mb-5 animate-fade-up leading-[1.16] sm:leading-[1.12] [text-wrap:balance]"
               style={{ animationDelay: "0.05s" }}
             >
               {headline}
@@ -64,7 +64,7 @@ export function HeroRendy({
 
             {/* Sub */}
             <p
-              className="text-sm sm:text-[0.95rem] md:text-base text-[var(--muted)] max-w-md mb-5 sm:mb-6 animate-fade-up leading-relaxed"
+              className="text-[0.9rem] sm:text-[0.95rem] md:text-base text-[var(--muted)] max-w-[21.5rem] sm:max-w-md mb-5 sm:mb-6 animate-fade-up leading-[1.6] sm:leading-relaxed [text-wrap:pretty]"
               style={{ animationDelay: "0.12s" }}
             >
               {sub}
