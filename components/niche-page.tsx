@@ -12,23 +12,96 @@ import { FaqSection } from "@/components/faq";
 import { AboutSection } from "@/components/about-section";
 import { FinalCta } from "@/components/final-cta";
 import { CtaStack } from "@/components/cta-stack";
-import type { Niche } from "@/data/niches";
+import type { FAQ, Niche, Step } from "@/data/niches";
+
+const REELS_SOCIAL_PROOF = "100+ property videos delivered · US and international clients · Refund if late";
+
+const REELS_STEPS: Step[] = [
+  {
+    n: "01",
+    title: "Send your photos",
+    desc: "Email 10-20 clear property photos with the listing link, location, price, and the call-to-action you want viewers to follow.",
+  },
+  {
+    n: "02",
+    title: "We create 3 angles",
+    desc: "You get a cinematic tour, an offer-focused reel, and a short Story/TikTok cut built for fast social posting.",
+  },
+  {
+    n: "03",
+    title: "Review and post",
+    desc: "Approve the preview, then publish the finished videos with captions and booking-focused CTA text included.",
+  },
+];
+
+const REELS_OFFER_STACK = [
+  "3 cinematic vertical videos from your existing photos",
+  "Formatted for Instagram Reels, TikTok, Stories, and listing pages",
+  "Text overlay with location, price, offer, or booking CTA",
+  "Music matched to the property style",
+  "Caption ideas for Instagram, Facebook, and TikTok",
+  "Direct booking CTA wording included",
+  "1 revision included",
+  "Delivered in 24 hours after photos are received",
+];
+
+const REELS_PORTFOLIO_LABELS = [
+  "Short-stay rental · vertical booking promo",
+  "City listing · inquiry-focused reel",
+  "Vacation property · social-ready story cut",
+];
+
+const REELS_FAQS: FAQ[] = [
+  {
+    q: "Do I need to shoot new video?",
+    a: "No. We create the videos from your existing photos. Clear daylight photos work best.",
+  },
+  {
+    q: "Can this work for real estate listings, not just rentals?",
+    a: "Yes. For agents, the videos are built to attract buyer leads, viewing requests, and listing inquiries.",
+  },
+  {
+    q: "What should I send?",
+    a: "Send 10-20 photos, property name, location, price or nightly rate, and the link or email you want viewers to use.",
+  },
+  {
+    q: "What if I don't like the first version?",
+    a: "One revision is included. The balance is paid only after you approve the preview.",
+  },
+  {
+    q: "Can you add my logo or contact details?",
+    a: "Yes. We can add your logo, contact details, location, price, booking link, or call-to-action text.",
+  },
+  {
+    q: "Do you guarantee bookings?",
+    a: "No one can honestly guarantee bookings from one video. What we guarantee is a professional video delivered on time, or we refund you if we are late.",
+  },
+];
 
 export function NichePage({ niche }: { niche: Niche }) {
   const isReelsPage = niche.slug === "airbnb-hosts";
+  const socialProof = isReelsPage ? REELS_SOCIAL_PROOF : niche.socialProof;
+  const steps = isReelsPage ? REELS_STEPS : niche.steps;
+  const offerStack = isReelsPage ? REELS_OFFER_STACK : niche.offerStack;
+  const faqs = isReelsPage ? REELS_FAQS : niche.faqs;
+  const portfolioItems = isReelsPage
+    ? niche.portfolioVideos.map((item, index) => ({
+        ...item,
+        label: REELS_PORTFOLIO_LABELS[index] ?? item.label,
+      }))
+    : niche.portfolioVideos;
 
   return (
     <main className="min-h-screen">
       <Header />
       <NicheHero niche={niche} />
 
-      {/* CTA stack #1 — after hero */}
       {!isReelsPage && <CtaStack slug={niche.slug} />}
 
-      <SocialProofBar text={niche.socialProof} />
+      <SocialProofBar text={socialProof} />
       {isReelsPage && (
         <PortfolioVideos
-          items={niche.portfolioVideos}
+          items={portfolioItems}
           placeholder={niche.portfolioPlaceholder}
         />
       )}
@@ -37,22 +110,20 @@ export function NichePage({ niche }: { niche: Niche }) {
         p2={niche.problemP2}
         cards={niche.problemCards}
       />
-      <HowItWorks steps={niche.steps} />
-      <OfferStack items={niche.offerStack} />
+      <HowItWorks steps={steps} />
+      <OfferStack items={offerStack} />
 
-      {/* CTA stack #2 — after offer stack */}
       <CtaStack slug={niche.slug} />
 
       {!isReelsPage && (
         <PortfolioVideos
-          items={niche.portfolioVideos}
+          items={portfolioItems}
           placeholder={niche.portfolioPlaceholder}
         />
       )}
       <Testimonials />
-      <FaqSection items={niche.faqs} />
+      <FaqSection items={faqs} />
 
-      {/* CTA stack #3 — after FAQ */}
       <CtaStack slug={niche.slug} />
 
       <AboutSection />
