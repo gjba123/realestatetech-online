@@ -15,15 +15,23 @@ import { CtaStack } from "@/components/cta-stack";
 import type { Niche } from "@/data/niches";
 
 export function NichePage({ niche }: { niche: Niche }) {
+  const isReelsPage = niche.slug === "airbnb-hosts";
+
   return (
     <main className="min-h-screen">
       <Header />
       <NicheHero niche={niche} />
 
       {/* CTA stack #1 — after hero */}
-      {niche.slug !== "airbnb-hosts" && <CtaStack slug={niche.slug} />}
+      {!isReelsPage && <CtaStack slug={niche.slug} />}
 
       <SocialProofBar text={niche.socialProof} />
+      {isReelsPage && (
+        <PortfolioVideos
+          items={niche.portfolioVideos}
+          placeholder={niche.portfolioPlaceholder}
+        />
+      )}
       <ProblemSection
         p1={niche.problemP1}
         p2={niche.problemP2}
@@ -35,10 +43,12 @@ export function NichePage({ niche }: { niche: Niche }) {
       {/* CTA stack #2 — after offer stack */}
       <CtaStack slug={niche.slug} />
 
-      <PortfolioVideos
-        items={niche.portfolioVideos}
-        placeholder={niche.portfolioPlaceholder}
-      />
+      {!isReelsPage && (
+        <PortfolioVideos
+          items={niche.portfolioVideos}
+          placeholder={niche.portfolioPlaceholder}
+        />
+      )}
       <Testimonials />
       <FaqSection items={niche.faqs} />
 
