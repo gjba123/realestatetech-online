@@ -1,10 +1,5 @@
 import { CONTACT, SPEC_CTA, type Niche } from "@/data/niches";
 
-/**
- * Spec CTA stack — WhatsApp + Email side-by-side.
- * Locale CSS in globals.css flips primary/secondary based on
- * `html.locale-kenya` vs `html.locale-international`.
- */
 export function CtaStack({ slug }: { slug: Niche["slug"] }) {
   const cta = SPEC_CTA[slug];
   const waHref = `https://wa.me/${CONTACT.whatsappNumber}?text=${cta.whatsappPrefill}`;
@@ -15,10 +10,10 @@ export function CtaStack({ slug }: { slug: Niche["slug"] }) {
       <div className="max-w-2xl mx-auto">
         <div className="cta-stack">
           <a href={waHref} className="cta-whatsapp wa-only" target="_blank" rel="noopener noreferrer">
-            💬 WhatsApp — Reply in 1hr
+            WhatsApp us
           </a>
           <a href={mailHref} className="cta-email">
-            ✉️ Email Us
+            Email us
           </a>
         </div>
       </div>
