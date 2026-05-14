@@ -7,7 +7,7 @@ export function FaqSection({ items }: { items: FAQType[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="section-warm py-14 sm:py-20 md:py-28">
+    <section id="faq" className="section-warm py-14 sm:py-20 md:py-28">
       <div className="container-x max-w-3xl">
         <div className="text-center mb-10">
           <span className="eyebrow text-[var(--blue)]">FAQ</span>
