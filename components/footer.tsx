@@ -24,7 +24,7 @@ export function Footer() {
               Services
             </h4>
             <ul className="flex flex-col gap-2 text-sm text-[var(--muted)]">
-              <li><Link href="/airbnb-hosts" className="hover:text-[var(--blue)] transition-colors">Airbnb Hosts</Link></li>
+              <li><Link href="/reels" className="hover:text-[var(--blue)] transition-colors">Airbnb Hosts</Link></li>
               <li><Link href="/realtors" className="hover:text-[var(--blue)] transition-colors">Realtors</Link></li>
               <li><Link href="/developers" className="hover:text-[var(--blue)] transition-colors">Developers</Link></li>
             </ul>
