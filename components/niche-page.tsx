@@ -45,10 +45,17 @@ const REELS_OFFER_STACK = [
   "Delivered in 24 hours after photos are received",
 ];
 
-const REELS_PORTFOLIO_LABELS = [
-  "Short-stay rental · vertical booking promo",
-  "City listing · inquiry-focused reel",
-  "Vacation property · social-ready story cut",
+const REELS_PORTFOLIO_ITEMS = [
+  { src: "2159ab47-ce12-4274-a63c-846a804404a0", label: "Portfolio reel 01" },
+  { src: "47c30a18-d00d-4938-9201-5764e698a8e9", label: "Portfolio reel 02" },
+  { src: "89991069-e0b5-4c3f-9050-77799b254fee", label: "Portfolio reel 03" },
+  { src: "3c41329d-3f7d-4f48-813a-a733eda3ca21", label: "Portfolio reel 04" },
+  { src: "55d81992-560a-4d9d-8379-b008604e4ba6", label: "Portfolio reel 05" },
+  { src: "c2ba93ff-ee16-40cc-a108-d6209aae0ec9", label: "Portfolio reel 06" },
+  { src: "0a873b7a-7061-4a9c-938e-ee7ef4f41a0d", label: "Portfolio reel 07" },
+  { src: "35a6c229-df19-43bf-b44e-f55f35718401", label: "Portfolio reel 08" },
+  { src: "ec943aa3-e873-4ef7-8d69-4e8222085813", label: "Portfolio reel 09" },
+  { src: "2b5cdd22-4b8b-476e-afa4-b0f0ec4cc392", label: "Portfolio reel 10" },
 ];
 
 const REELS_FAQS: FAQ[] = [
@@ -84,12 +91,7 @@ export function NichePage({ niche }: { niche: Niche }) {
   const steps = isReelsPage ? REELS_STEPS : niche.steps;
   const offerStack = isReelsPage ? REELS_OFFER_STACK : niche.offerStack;
   const faqs = isReelsPage ? REELS_FAQS : niche.faqs;
-  const portfolioItems = isReelsPage
-    ? niche.portfolioVideos.map((item, index) => ({
-        ...item,
-        label: REELS_PORTFOLIO_LABELS[index] ?? item.label,
-      }))
-    : niche.portfolioVideos;
+  const portfolioItems = isReelsPage ? REELS_PORTFOLIO_ITEMS : niche.portfolioVideos;
 
   return (
     <main className="min-h-screen">
