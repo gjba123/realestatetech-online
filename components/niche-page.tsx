@@ -22,7 +22,7 @@ export function NichePage({ niche }: { niche: Niche }) {
       <NicheHero niche={niche} />
 
       {/* CTA stack #1 — after hero */}
-      <CtaStack slug={niche.slug} />
+      {niche.slug !== "airbnb-hosts" && <CtaStack slug={niche.slug} />}
 
       <SocialProofBar text={niche.socialProof} />
       <ProblemSection
