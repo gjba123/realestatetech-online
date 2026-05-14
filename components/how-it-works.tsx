@@ -12,7 +12,8 @@ export function HowItWorks({ steps }: { steps: Step[] }) {
             </em>
           </h2>
           <p className="text-base md:text-lg text-[var(--muted)] mt-4 leading-relaxed">
-            No call sheets, no rescheduling. We come, we shoot, we deliver — built for hosts who don&apos;t have a week to lose.
+            Send the property photos you already have. We turn them into polished,
+            platform-ready vertical videos without scheduling a shoot.
           </p>
         </div>
 
@@ -22,13 +23,12 @@ export function HowItWorks({ steps }: { steps: Step[] }) {
               key={step.n}
               className="relative bg-[var(--card-2)] rounded-2xl border border-[var(--border)] p-6 sm:p-7 flex flex-col gap-4 card-hover"
             >
-              {/* Step number */}
               <div className="flex items-center justify-between">
                 <span className="w-8 h-8 rounded-full bg-[var(--ink)] text-[var(--card)] flex items-center justify-center text-sm font-bold font-display">
                   {step.n}
                 </span>
                 <span className="text-[10px] font-bold tracking-widest text-[var(--green)] bg-[var(--sage)] px-2.5 py-1 rounded-full">
-                  AFTER
+                  STEP {i + 1}
                 </span>
               </div>
 
@@ -42,15 +42,14 @@ export function HowItWorks({ steps }: { steps: Step[] }) {
                 <p className="text-sm text-[var(--muted)] leading-relaxed">{step.desc}</p>
               </div>
 
-              {/* Bottom pill tag */}
               {i === 0 && (
-                <span className="eyebrow-pill self-start text-[10px]">● 15-min onboarding</span>
+                <span className="eyebrow-pill self-start text-[10px]">Photo intake</span>
               )}
               {i === 1 && (
-                <span className="eyebrow-pill self-start text-[10px]">● 90-min on property</span>
+                <span className="eyebrow-pill self-start text-[10px]">Editing sprint</span>
               )}
               {i === 2 && (
-                <span className="eyebrow-pill self-start text-[10px]">● 24-hour delivery</span>
+                <span className="eyebrow-pill self-start text-[10px]">Ready to post</span>
               )}
             </div>
           ))}
