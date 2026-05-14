@@ -3,26 +3,26 @@ import { CONTACT, SPEC_CTA, bunnyEmbedUrl, waUrl, type Niche } from "@/data/nich
 
 const VARIANT_MAP: Record<Niche["slug"], "hosts" | "realtors" | "developers"> = {
   "airbnb-hosts": "hosts",
-  "realtors": "realtors",
-  "developers": "developers",
+  realtors: "realtors",
+  developers: "developers",
 };
 
 const TRUST_MAP: Record<Niche["slug"], string> = {
   "airbnb-hosts": "100+ property videos delivered · Kenya-based · USA clients",
-  "realtors": "Trusted by realtors closing 40% faster (NAR 2025)",
-  "developers": "Built for off-plan launches · 10-50+ unit projects",
+  realtors: "Trusted by realtors closing 40% faster (NAR 2025)",
+  developers: "Built for off-plan launches · 10-50+ unit projects",
 };
 
 const INTL_CTA_LABEL: Record<Niche["slug"], string> = {
   "airbnb-hosts": "Email Me Your Photos",
-  "realtors": "Email Us — 24hr Reply",
-  "developers": "Email Us — Book Discovery Call",
+  realtors: "Email Us — 24hr Reply",
+  developers: "Email Us — Book Discovery Call",
 };
 
 const EYEBROW_MAP: Record<Niche["slug"], string> = {
   "airbnb-hosts": "Property reels · 24h delivery",
-  "realtors": "Listing videos · 24h delivery",
-  "developers": "Launch reels · 7-day packages",
+  realtors: "Listing videos · 24h delivery",
+  developers: "Launch reels · 7-day packages",
 };
 
 export function NicheHero({ niche }: { niche: Niche }) {
@@ -31,7 +31,7 @@ export function NicheHero({ niche }: { niche: Niche }) {
 
   if (niche.slug === "airbnb-hosts") {
     return (
-      <section className="relative overflow-hidden bg-[var(--bg)] pt-20 pb-14 sm:pt-24 sm:pb-16 md:pt-24 md:pb-20 border-b border-[var(--border)]">
+      <section className="relative overflow-hidden bg-[var(--bg)] pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-24 md:pb-14 border-b border-[var(--border)]">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -41,17 +41,17 @@ export function NicheHero({ niche }: { niche: Niche }) {
         />
 
         <div className="container-x relative z-10">
-          <div className="grid md:grid-cols-[minmax(0,1fr)_minmax(260px,360px)] gap-8 md:gap-12 items-center">
+          <div className="grid md:grid-cols-[minmax(0,36rem)_250px] lg:grid-cols-[minmax(0,38rem)_260px] gap-7 md:gap-10 lg:gap-12 items-center">
             <div className="max-w-[34rem]">
               <span className="eyebrow-pill mb-5 inline-flex">
                 Property reels · 24h delivery
               </span>
 
-              <h1 className="h-display text-[2.35rem] sm:text-[3rem] md:text-[3.45rem] text-[var(--ink)] leading-[0.98] mb-4 [text-wrap:balance]">
+              <h1 className="h-display text-[2.2rem] sm:text-[2.8rem] md:text-[3rem] lg:text-[3.15rem] text-[var(--ink)] leading-[1.02] mb-4 [text-wrap:balance]">
                 Property Reels That Bring More Booking Inquiries
               </h1>
 
-              <p className="text-base sm:text-lg text-[var(--muted)] leading-[1.55] max-w-[31rem] mb-6 [text-wrap:pretty]">
+              <p className="text-base sm:text-lg text-[var(--muted)] leading-[1.55] max-w-[30rem] mb-6 [text-wrap:pretty]">
                 Send your photos. Get 3 polished vertical videos in 24 hours for
                 Instagram, TikTok, Stories, and direct booking messages.
               </p>
@@ -93,7 +93,7 @@ export function NicheHero({ niche }: { niche: Niche }) {
 
             <div className="flex justify-center md:justify-end">
               <div
-                className="relative w-full max-w-[285px] sm:max-w-[315px] rounded-[1.35rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
+                className="relative w-full max-w-[240px] sm:max-w-[255px] md:max-w-[250px] rounded-[1.25rem] overflow-hidden bg-black border-2 border-[var(--ink)] shadow-xl"
                 style={{ aspectRatio: "9/16" }}
               >
                 <iframe
