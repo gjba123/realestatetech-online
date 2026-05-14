@@ -77,7 +77,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-5">
             <ServiceCard
-              href="/airbnb-hosts"
+              href="/reels"
               icon={
                 <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M2.25 12 12 2.25l9.75 9.75M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" strokeLinecap="round" strokeLinejoin="round" />
